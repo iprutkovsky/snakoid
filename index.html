@@ -14,18 +14,72 @@
 </head>
 
 <body>
-	<div id="audio-container">
-		<div class="RP-SCRIPT"></div>
-	</div>
+	<div class="main-field">
+		<div class="left-right-panel">
+			<img src="./images/background/guard-snakoid.png">
+		</div>
 
-	<div id="game">
-		<div class="game-header">
-			<div class="game-score">
-				<span class="score-count"></span>
+		<div class="central">
+			<div id="audio-container">
+				<div class="RP-SCRIPT">
+					<div class="RP-SCRIPT-CONTAINER">
+						<div id="RP-playerjs"></div>
+						<div class="main">
+							<div class="current-song">
+								<span>Online Radio</span>
+							</div>
+							<div class="info">
+								<div class="info-container">
+									<div class="volume-wrapper ease-in-out">
+										<form class="volume">
+											<input class="volume-slider" type="range" min="0" max="100" step="1"
+												value="9" aria-label="Volume" />
+										</form>
+									</div>
+								</div>
+								<div class="radio-block">
+									<label for="radio-station"></label>
+									<select id="radio-station" name="radio-station"
+										onchange="radioStationChanged(event);">
+										<option value="chilloutfm">ChilloutFM</option>
+										<option value="lofi">Lofi</option>
+									</select>
+								</div>
+							</div>
+							<button type="button" class="player-control ease-in-out" onclick="radioPlayPause()"
+								data-state="stopped">
+								<img src="./images/icons/play-icon.png" class="play-icon pulsate-fwd ease-in-out">
+								<img src="./images/icons/pause-icon.png" class="pause-icon ease-in-out">
+								<img src="./images/icons/spin.png" class="buffer-icon animate-spin ease-in-out">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="game">
+				<div class="game-header">
+					<div class="game-score">
+						<span class="score-count"></span>
+					</div>
+				</div>
+				<div class="canvas-wrapper">
+					<canvas id="game-canvas"></canvas>
+				</div>
+			</div>
+
+			<div class="chat-container">
+				<textarea name="chat" id="chat-field" disabled></textarea>
+				<div class="input-field">
+					<input type="text">
+					<button><span>Send</span></button>
+				</div>
+
 			</div>
 		</div>
-		<div class="canvas-wrapper">
-			<canvas id="game-canvas"></canvas>
+
+		<div class="left-right-panel">
+			<img src="./images/background/guard-snakoid-right.png">
 		</div>
 	</div>
 </body>
