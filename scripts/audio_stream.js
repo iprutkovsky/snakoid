@@ -1,12 +1,12 @@
-("use strict");
+('use strict');
 eval((function (p, a, c, k, e, d) {
     e = function (c) {
         return (
-            (c < a ? "" : e(parseInt(c / a))) +
+            (c < a ? '' : e(parseInt(c / a))) +
             ((c %= a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
         );
     };
-    if (!"".replace(/^/, String)) {
+    if (!''.replace(/^/, String)) {
         while (c--) {
             d[e(c)] = k[c] || e(c);
         }
@@ -16,13 +16,13 @@ eval((function (p, a, c, k, e, d) {
             },
         ];
         e = function () {
-            return "\\w+";
+            return '\\w+';
         };
         c = 1;
     }
     while (c--) {
         if (k[c]) {
-            p = p.replace(new RegExp("\\b" + e(c) + "\\b", "g"), k[c]);
+            p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
         }
     }
     return p;
@@ -36,116 +36,66 @@ eval((function (p, a, c, k, e, d) {
     0,
     {}
 ));
-const RP_RADIO = { 1262: { "id": "1262", "type": "radio", "url": "\/radio\/1262", "stream": "[{\"title\":\"\u041f\u043e\u0442\u043e\u043a \u21161\", \"file\":\"https:\/\/listen2.myradio24.com\/8795\", \"id\":\"1\"}]", "stream_yandex": "", "stream_info": "1", "logo": "1", "name": "ChilloutFM", "track": "", "artist": "", "song": "", "preview": "", "show_preview": "1", "videoshot_type": "abstract", "cover": "[]", "listeners": "", "favorite": false }, };
 
-// const RP_CSS =
+let currentState = 'stop';
+
+// const radioPlayerStyle =
 //     '<style>.RP-SCRIPT *,.RP-SCRIPT ::before,.RP-SCRIPT ::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#9ca3af}.RP-SCRIPT ::before,.RP-SCRIPT ::after{--tw-content: ""}.RP-SCRIPT{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter var,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;margin:0;line-height:inherit}.RP-SCRIPT hr{height:0;color:inherit;border-top-width:1px}.RP-SCRIPT abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}.RP-SCRIPT h1,.RP-SCRIPT h2,.RP-SCRIPT h3,.RP-SCRIPT h4,.RP-SCRIPT h5,.RP-SCRIPT h6{font-size:inherit;font-weight:inherit}.RP-SCRIPT a{color:inherit;text-decoration:inherit}.RP-SCRIPT b,.RP-SCRIPT strong{font-weight:bolder}.RP-SCRIPT code,.RP-SCRIPT kbd,.RP-SCRIPT samp,.RP-SCRIPT pre{font-size:1em}.RP-SCRIPT small{font-size:80%}.RP-SCRIPT sub,.RP-SCRIPT sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}.RP-SCRIPT sub{bottom:-0.25em}.RP-SCRIPT sup{top:-0.5em}.RP-SCRIPT table{text-indent:0;border-color:inherit;border-collapse:collapse}.RP-SCRIPT button,.RP-SCRIPT input,.RP-SCRIPT optgroup,.RP-SCRIPT select,.RP-SCRIPT textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}.RP-SCRIPT button,.RP-SCRIPT select{text-transform:none}.RP-SCRIPT button,.RP-SCRIPT [type=button],.RP-SCRIPT [type=reset],.RP-SCRIPT [type=submit]{-webkit-appearance:button;background-color:rgba(0,0,0,0);background-image:none}.RP-SCRIPT :-moz-focusring{outline:auto}.RP-SCRIPT :-moz-ui-invalid{box-shadow:none}.RP-SCRIPT progress{vertical-align:baseline}.RP-SCRIPT ::-webkit-inner-spin-button,.RP-SCRIPT ::-webkit-outer-spin-button{height:auto}.RP-SCRIPT [type=search]{-webkit-appearance:textfield;outline-offset:-2px}.RP-SCRIPT ::-webkit-search-decoration{-webkit-appearance:none}.RP-SCRIPT ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}.RP-SCRIPT summary{display:list-item}.RP-SCRIPT blockquote,.RP-SCRIPT dl,.RP-SCRIPT dd,.RP-SCRIPT h1,.RP-SCRIPT h2,.RP-SCRIPT h3,.RP-SCRIPT h4,.RP-SCRIPT h5,.RP-SCRIPT h6,.RP-SCRIPT hr,.RP-SCRIPT figure,.RP-SCRIPT p,.RP-SCRIPT pre{margin:0}.RP-SCRIPT fieldset{margin:0;padding:0}.RP-SCRIPT legend{padding:0}.RP-SCRIPT ol,.RP-SCRIPT ul,.RP-SCRIPT menu{list-style:none;margin:0;padding:0}.RP-SCRIPT textarea{resize:vertical}.RP-SCRIPT input::-moz-placeholder, .RP-SCRIPT textarea::-moz-placeholder{opacity:1;color:#9ca3af}.RP-SCRIPT input::placeholder,.RP-SCRIPT textarea::placeholder{opacity:1;color:#9ca3af}.RP-SCRIPT button,.RP-SCRIPT [role=button]{cursor:pointer}.RP-SCRIPT :disabled{cursor:default}.RP-SCRIPT img,.RP-SCRIPT svg,.RP-SCRIPT video,.RP-SCRIPT canvas,.RP-SCRIPT audio,.RP-SCRIPT iframe,.RP-SCRIPT embed,.RP-SCRIPT object{display:block;vertical-align:middle}.RP-SCRIPT img,.RP-SCRIPT video{max-width:100%;height:auto}.RP-SCRIPT [hidden]{display:none}.RP-SCRIPT .RP-hidden{display:none}.RP-SCRIPT .RP-opacity-25{opacity:.25}.RP-SCRIPT .RP-opacity-75{opacity:.75}*,::backdrop,:after,:before{--tw-border-opacity: 1;--tw-bg-opacity: 1;--tw-text-opacity: 1;--tw-space-y-reverse: 0;--tw-space-x-reverse: 0;--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-opacity: 1;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: #3b82f680;--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.RP-SCRIPT{--rp-bg-color: #757575;--rp-text-color: #000;position:relative;margin-left:auto;margin-right:auto;display:flex;max-width:72rem;flex-wrap:wrap;align-content:center}.RP-SCRIPT[data-style=dark]{--rp-bg-color: #374151;--rp-text-color: #f3f4f6}.RP-SCRIPT .RP-SCRIPT-CONTAINER{border-radius:1rem;padding:.25rem;color:#fff;background-color:var(--rp-bg-color)}.RP-SCRIPT .RP-PLAYER-JS-WRAPPER{position:absolute;bottom:-4rem;z-index:0;height:.25rem;width:.25rem}.RP-SCRIPT .RP-LINK{display:block;white-space:nowrap;padding-left:1rem;padding-right:1rem;padding-bottom:.5rem;padding-top:.25rem;font-size:1.25rem;line-height:1.75rem}.RP-SCRIPT .RP-PLAYER{position:relative;display:grid;grid-template-columns:repeat(1, minmax(0, 1fr));gap:.25rem;overflow:hidden;border-radius:1rem;background-color:#fff}.RP-SCRIPT .RP-RADIO-LOGO{width:100%;padding:.25rem}.RP-SCRIPT .RP-INFO-CONTAINER{display:flex;flex-direction:column;align-content:center;align-items:center;justify-items:center;overflow:hidden;padding-left:.5rem;padding-right:.5rem;padding-bottom:1.25rem}.RP-SCRIPT .RP-INFO-CONTAINER .RP-SONG-WRAPPER{order:9999;margin-top:.75rem;--tw-space-y-reverse: 0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.RP-SCRIPT .RP-INFO-CONTAINER .RP-SONG-WRAPPER .RP-currentSong{white-space:nowrap;text-align:center;font-size:1.25rem;line-height:1.75rem;--tw-text-opacity: 1;color:rgb(0 0 0/var(--tw-text-opacity));overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.RP-SCRIPT .RP-VOLUME-WRAPPER{display:none}.RP-SCRIPT .RP-PLAYER-CONTROL{border-radius:9999px;color:rgb(255 255 255/var(--tw-text-opacity))}.RP-SCRIPT .RP-PLAYER-CONTROL:hover{--tw-ring-opacity: 1;--tw-ring-color: rgb(239 68 68 / var(--tw-ring-opacity));--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow, 0 0 rgba(0, 0, 0, 0))}.RP-SCRIPT .RP-PLAYER-CONTROL[data-state=stopped] .RP-play-icon{display:block}.RP-SCRIPT .RP-PLAYER-CONTROL[data-state=stopped] .RP-pause-icon{display:none}.RP-SCRIPT .RP-PLAYER-CONTROL[data-state=stopped] .RP-buffer-icon{display:none}.RP-SCRIPT .RP-PLAYER-CONTROL[data-state=playing] .RP-play-icon{display:none}.RP-SCRIPT .RP-PLAYER-CONTROL[data-state=playing] .RP-pause-icon{display:block}.RP-SCRIPT .RP-PLAYER-CONTROL[data-state=playing] .RP-buffer-icon{display:none}.RP-SCRIPT .RP-PLAYER-CONTROL[data-state=buffering] .RP-play-icon{display:none}.RP-SCRIPT .RP-PLAYER-CONTROL[data-state=buffering] .RP-pause-icon{display:none}.RP-SCRIPT .RP-PLAYER-CONTROL[data-state=buffering] .RP-buffer-icon{display:block}.RP-SCRIPT .RP-PLAYER-CONTROL svg{height:6rem;width:6rem;color:red}.RP-SCRIPT .RP-PLAYER-CONTROL:hover{color:rgb(255 255 255/var(--tw-text-opacity))}@media(min-width: 640px){.RP-SCRIPT .RP-LINK{white-space:normal;font-size:2.25rem;line-height:2.5rem}.RP-SCRIPT .RP-SCRIPT-CONTAINER{align-self:center}.RP-SCRIPT .RP-PLAYER{grid-template-columns:repeat(5, minmax(0, 1fr));gap:1.25rem}.RP-SCRIPT .RP-RADIO-LOGO-CONTAINER{grid-column:span 2/span 2}.RP-SCRIPT .RP-RADIO-LOGO{padding:1rem}.RP-SCRIPT .RP-INFO-CONTAINER{grid-column:span 3/span 3;justify-content:space-around;padding-bottom:0px}.RP-SCRIPT .RP-INFO-CONTAINER .RP-SONG-WRAPPER{order:-9999;margin-top:0px}.RP-SCRIPT .RP-INFO-CONTAINER .RP-SONG-WRAPPER .RP-currentSong{white-space:normal;font-size:2.25rem;line-height:2.5rem}.RP-SCRIPT .RP-VOLUME-WRAPPER{display:block;width:16rem}.RP-SCRIPT .RP-VOLUME-WRAPPER .RP-volume{margin:0px}}@media(max-width: 639px){.RP-SCRIPT{width:auto !important}}form.RP-volume{--min: 0;--max: 100;--val: 9;--k: calc((var(--val) - var(--min)) / (var(--max) - var(--min)));--pos: calc(1.125em + var(--k) * (100% - 2.25em));display:grid;grid-gap:.25em;place-self:center;min-width:8em;width:calc(100% - 1.5em);max-width:14em;transition:filter .3s ease-out}form.RP-volume input[type=range]{background:rgba(0,0,0,0);cursor:pointer;width:100%}form.RP-volume input[type=range],form.RP-volume input[type=range]::-webkit-slider-runnable-track,form.RP-volume input[type=range]::-webkit-slider-thumb{-webkit-appearance:none}form.RP-volume input[type=range][list]::-webkit-slider-container{min-height:.375em}form.RP-volume input[type=range]::-webkit-slider-container{-webkit-user-modify:read-write !important;height:11px;margin:.375em;border-radius:.75em;box-shadow:inset 0 1px 4px #c5c5c5;background:linear-gradient(#4077BE, #3F74B8) 0/var(--pos) no-repeat,linear-gradient(#efefef, #c9c9c9)}form.RP-volume input[type=range]::-webkit-slider-runnable-track{margin:-0.375em}form.RP-volume input[type=range]::-moz-range-track{margin:.375em;height:1.5em;border-radius:.75em;box-shadow:inset 0 1px 4px #8c8c8c;background:linear-gradient(#4077BE, #3F74B8) 0/var(--pos) no-repeat,linear-gradient(#efefef, #c9c9c9)}form.RP-volume input[type=range]::-webkit-slider-thumb{box-sizing:border-box;border:solid .375em rgba(0,0,0,0);width:1.6em;height:1.6em;border-radius:50%;box-shadow:0 2px 5px #7d7d7d;background:linear-gradient(#4077BE, #3F74B8) padding-box,linear-gradient(#fbfbfb, #c2c2c2) border-box;cursor:ew-resize}form.RP-volume input[type=range]::-moz-range-thumb{box-sizing:border-box;border:solid .375em rgba(0,0,0,0);width:1.6em;height:1.6em;border-radius:50%;box-shadow:0 2px 5px #7d7d7d;background:linear-gradient(#4077BE, #3F74B8) padding-box,linear-gradient(#fbfbfb, #c2c2c2) border-box;cursor:ew-resize}form.RP-volume input[type=range]:focus{outline:none}.RP-transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:250ms}.RP-ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}@keyframes RP-spin{to{transform:rotate(360deg)}}.RP-animate-spin{animation:RP-spin 1s linear infinite}.RP-gradient{background:linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size:400% 400%;animation:RP-gradient 15s ease infinite}@keyframes RP-gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@keyframes RP-bubble-out{0%,100%{transform:scale(0.66)}50%{transform:scale(1)}}.RP-pulsate-fwd{animation:RP-pulsate-fwd 2s ease-in-out infinite both}@keyframes RP-pulsate-fwd{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}.RP-text-shadow{text-shadow:2px 2px 0px #000}.RP-text-shadow-light{text-shadow:2px 2px 0px #eee}</style>';
 
-const RP_PLAYER_HTML =
-    // '<div class="RP-SCRIPT-CONTAINER"><div class="RP-PLAYER"><div class="RP-RADIO-LOGO-CONTAINER"><div class="RP-PLAYER-JS-WRAPPER"><div id="RP_playerjs"></div></div></div><div class="RP-INFO-CONTAINER"><div class="RP-SONG-WRAPPER"><div class="RP-currentSong RP-text-shadow-light">Online Chillout Stream</div></div><div class="RP-VOLUME-WRAPPER RP-transition RP-ease-in-out"><form class="RP-volume RP-volume--item"><input class="RP-volume-slider" type="range" min="0" max="100" step="1" value="9" aria-label="Volume" /></form></div><div><button type="button" class="RP-PLAYER-CONTROL RP-transition RP-ease-in-out" onclick="radioPlayPause()" data-state="stopped"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="RP-play-icon RP-pulsate-fwd RP-transition RP-ease-in-out" fill="currentColor" stroke="none"><path d="M8 5v14l11-7L8 5z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="RP-pause-icon RP-transition RP-ease-in-out" fill="currentColor" stroke="none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg><svg class="RP-buffer-icon RP-animate-spin RP-ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" title="Буферизация"><circle class="RP-opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="RP-opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg></button></div></div></div></div>';
-    '<div class="RP-SCRIPT-CONTAINER"><div class="RP-PLAYER"><div id="RP_playerjs"></div><div class="RP-INFO-CONTAINER"><div class="RP-currentSong RP-text-shadow-light">Online Chillout Stream</div><div class="RP-VOLUME-WRAPPER RP-transition RP-ease-in-out"><form class="RP-volume RP-volume--item"><input class="RP-volume-slider" type="range" min="0" max="100"step="1" value="9" aria-label="Volume" /></form></div><div><button type="button" class="RP-PLAYER-CONTROL RP-transition RP-ease-in-out" onclick="radioPlayPause()" data-state="stopped"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="RP-play-icon RP-pulsate-fwd RP-transition RP-ease-in-out" fill="currentColor" stroke="none"><path d="M8 5v14l11-7L8 5z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="RP-pause-icon RP-transition RP-ease-in-out" fill="currentColor" stroke="none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg><svg class="RP-buffer-icon RP-animate-spin RP-ease-in-out" xmlns="http://www.w3.org/2000/svg"	fill="none" viewBox="0 0 24 24" title="Буферизация"><circle class="RP-opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="RP-opacity-75" fill="currentColor"	d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg></button></div></div></div></div>';
+// const radioPlayerHTML =
+//     '<div class="RP-SCRIPT-CONTAINER"><div class="RP-PLAYER"><div id="RP_playerjs"></div><div class="RP-INFO-CONTAINER"><div class="RP-currentSong RP-text-shadow-light">Online Chillout Stream</div><div class="RP-VOLUME-WRAPPER RP-transition RP-ease-in-out"><form class="RP-volume RP-volume--item"><input class="RP-volume-slider" type="range" min="0" max="100"step="1" value="9" aria-label="Volume" /></form></div><div><button type="button" class="RP-PLAYER-CONTROL RP-transition RP-ease-in-out" onclick="radioPlayPause()" data-state="stopped"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="RP-play-icon RP-pulsate-fwd RP-transition RP-ease-in-out" fill="currentColor" stroke="none"><path d="M8 5v14l11-7L8 5z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="RP-pause-icon RP-transition RP-ease-in-out" fill="currentColor" stroke="none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg><svg class="RP-buffer-icon RP-animate-spin RP-ease-in-out" xmlns="http://www.w3.org/2000/svg"	fill="none" viewBox="0 0 24 24" title="Буферизация"><circle class="RP-opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="RP-opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg></button></div></div></div></div>';
 
 const RP_PLAYERJS = new Playerjs({
-    id: "RP_playerjs",
     autonext: 1,
-    playlistloop: 1,
     autoplay: 1,
-    file: "",
+    id: 'RP-playerjs',
+    playlistloop: 1,
+    file: ''
 });
 
+const radioDescription = {
+    'chilloutfm': 'https://listen2.myradio24.com/8795',
+    'lofi': 'https://live.lofiradio.ru/lofi_mp3_320'
+};
+let radioStream = radioDescription['chilloutfm'];
+
 const RP_SCRIPT = {
-    VERSION: "E2.0.0",
-    SITE_URL: "https://radiopotok.ru",
     curentId: 1262,
-    volumeSliders: null,
+    version: 'E2.0.0',
     volume: 9,
-    TMP: { track: "", manualDarkMode: !1 },
-    WS: null,
-    WS_IDS: null,
-    WS_UPDATE_TIME: 10000,
-    WS_PREVIOUS_UPDATE_TIME: 0,
-    wsDomains: ["01", "02", "03", "04"],
-    WS_DOMAIN: "wss://ws.radiopotok.ru:",
-    WS_PORT_START: 8001,
-    WS_PORT_END: 8010,
+    volumeSliders: null,
 };
-
-var RP_WS_Init = function () {
-    const serverId = getRandomInt(0, RP_SCRIPT.wsDomains.length - 1);
-    const WS_ADDR =
-        "wss://" +
-        RP_SCRIPT.wsDomains[serverId] +
-        ".ws.radiopotok.ru" +
-        ":" +
-        getRandomInt(RP_SCRIPT.WS_PORT_START, RP_SCRIPT.WS_PORT_END);
-    console.log("v6 WS init --> " + WS_ADDR, "info");
-    try {
-        RP_SCRIPT.WS = new WebSocket(WS_ADDR);
-        RP_SCRIPT.WS.onopen = RP_WS_connectionOpen;
-        RP_SCRIPT.WS.onerror = RP_WS_errorOccurred;
-    } catch (e) {
-        console.error(e);
-    }
-};
-
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function RP_WS_UpdateRequest() {
-    if (RP_PLAYERJS.api("playing") == !1) return !1;
-    RP_SCRIPT.WS_IDS = {};
-    RP_SCRIPT.WS_IDS.radio = {};
-    RP_SCRIPT.WS_IDS.radio.ether = [{ id: RP_SCRIPT.curentId, stream_info: 1 }];
-    try {
-        if (null == RP_SCRIPT.WS || RP_SCRIPT.WS.readyState == 3) RP_WS_Init();
-        RP_SCRIPT.WS.send(JSON.stringify(RP_SCRIPT.WS_IDS));
-    } catch (e) { }
-}
-
-function RP_WS_connectionOpen() {
-    console.log("v6 WS: The connection has been mutually established", "info");    
-    RP_WS_UpdateRequest();
-}
-
-function RP_WS_errorOccurred(e) {
-    console.log("v6 WS Error: " + e, "error");
-}
 
 function radioPlayPause() {
-    const currentRadio = document.querySelector(".RP-PLAYER-CONTROL");
-    let currentState = "";
-    const previousRadioSong = document.querySelector(".RP-active .RP-currentSong");
+    const currentRadio = document.querySelector('.player-control');
+    const previousRadioSong = document.querySelector('.RP-active .current-song');
+
+    currentState = currentRadio.dataset.state == 'playing' ? 'stop' : 'play';
 
     if (previousRadioSong != null) {
-        previousRadioSong.innerHTML = "";
+        previousRadioSong.innerHTML = '';
     }
 
-    currentState = currentRadio.dataset.state == "playing" ? "stop" : "play";
-
     switch (currentState) {
-        case "play":
-            const playList = RP_RADIO[RP_SCRIPT.curentId].stream;
-            currentRadio.dataset.state = "playing";
-            currentRadio.title = "Stop Playback";
+        case 'play':
+            currentRadio.dataset.state = 'playing';
+            currentRadio.title = 'Stop Playback';
             try {
-                RP_PLAYERJS.api("play", playList);
+                RP_PLAYERJS.api('play', radioStream);
             } catch (error) {
-                console.log("v6 Playback error", "error");
+                console.log('v6 Playback error', 'error');
                 console.error(error);
-                RADIO_DATA[RP_SCRIPT.curentId].track = "Ошибка Playback";
             }
-            RP_WS_UpdateRequest();
             break;
-        case "stop":
-            const radioTrack = document.querySelector(".RP-currentSong");
-            currentRadio.dataset.state = "stopped";
-            currentRadio.title = "Start Playback";
-            radioTrack.innerHTML = "Online Chillout Stream";
+        case 'stop':
+            const radioTrack = document.querySelector('.current-song');
+            currentRadio.dataset.state = 'stopped';
+            currentRadio.title = 'Start Playback';
+            radioTrack.innerHTML = 'Online Radio';
             try {
-                RP_PLAYERJS.api("stop");
+                RP_PLAYERJS.api('stop');
             } catch (error) {
-                console.log("v6 Stop error", "error");
+                console.log('v6 Stop error', 'error');
                 console.error(error);
             }
             break;
@@ -154,39 +104,48 @@ function radioPlayPause() {
     }
 }
 
+function radioStationChanged(event) {
+    const previousRadioStream = radioStream;
+    radioStream = radioDescription[event.target.value];
+
+    if (previousRadioStream != radioStream && currentState == 'play') {
+        RP_PLAYERJS.api('play', radioStream);
+    }
+    console.log(radioStream);
+}
+
 function RPScript_v6_PlayerjsEvents(event, id, data) {
-    const controlButton = document.querySelector(".RP-PLAYER-CONTROL");
+    const controlButton = document.querySelector('.player-control');
     switch (event) {
-        case "buffered":
-            controlButton.dataset.state = "playing";
+        case 'buffered':
+            controlButton.dataset.state = 'playing';
             break;
-        case "buffering":
-            controlButton.dataset.state = "buffering";
+        case 'buffering':
+            controlButton.dataset.state = 'buffering';
             break;
-        case "end":
-        case "loaderror":
-            let _playlist_id = RP_PLAYERJS.api("playlist_id");
-            let _playlist_length = RP_PLAYERJS.api("playlist_length");
-            if (1 != _playlist_length) RP_PLAYERJS.api("next");
+        case 'end':
+        case 'loaderror':
+            let playlistId = RP_PLAYERJS.api('playlist_id');
+            let playlistLength = RP_PLAYERJS.api('playlist_length');
+            if (playlistLength != 1) RP_PLAYERJS.api('next');
             else {
-                RP_PLAYERJS.api("find", _playlist_id);
-                RP_PLAYERJS.api("play");
+                RP_PLAYERJS.api('find', playlistId);
+                RP_PLAYERJS.api('play');
             }
             break;
-        case "error":
-            controlButton.dataset.state = "stopped";
+        case 'error':
+            controlButton.dataset.state = 'stopped';
             break;
-        case "init":
-            const player = document.querySelector("#RP_playerjs");
-            player.style.position = "absolute";
+        case 'init':
+            const player = document.querySelector('#RP-playerjs');
+            player.style.position = 'absolute';
             break;
-        case "play":
-            RP_PLAYERJS.api("volume", RP_SCRIPT.volume / 100);
-            controlButton.dataset.state = "playing";
-            if (null == RP_SCRIPT.WS) RP_WS_Init();
+        case 'play':
+            RP_PLAYERJS.api('volume', RP_SCRIPT.volume / 100);
+            controlButton.dataset.state = 'playing';
             break;
-        case "stop":
-            controlButton.dataset.state = "stopped";
+        case 'stop':
+            controlButton.dataset.state = 'stopped';
             break;
         default:
             break;
@@ -194,35 +153,33 @@ function RPScript_v6_PlayerjsEvents(event, id, data) {
 }
 
 function initPlaylist() {
-    const script = document.querySelector(".RP-SCRIPT");
-    script.innerHTML = "";
-    // script.insertAdjacentHTML("beforeend", RP_CSS);
-    script.insertAdjacentHTML("beforeend", RP_PLAYER_HTML);
+    const script = document.querySelector('.RP-SCRIPT');
+    // script.innerHTML = '';
+    // script.insertAdjacentHTML('beforeend', radioPlayerStyle);
+    // script.insertAdjacentHTML('beforeend', radioPlayerHTML);
 }
 
 function volumeSlidersInit(activateListeners) {
-    RP_SCRIPT.volumeSliders = document.getElementsByClassName("RP-volume");
+    RP_SCRIPT.volumeSliders = document.getElementsByClassName('volume');
     [].forEach.call(RP_SCRIPT.volumeSliders, function (volumeSlider) {
-        volumeSlider.style.setProperty("--val", RP_SCRIPT.volume);
-        volumeSlider.getElementsByClassName("RP-volume-slider")[0].value =
-            RP_SCRIPT.volume;
-        volumeSlider.getElementsByClassName("RP-volume-slider")[0].title =
-            "Volume " + RP_SCRIPT.volume;
+        volumeSlider.style.setProperty('--val', RP_SCRIPT.volume);
+        volumeSlider.getElementsByClassName('volume-slider')[0].value = RP_SCRIPT.volume;
+        volumeSlider.getElementsByClassName('volume-slider')[0].title = 'Volume ' + RP_SCRIPT.volume;
         if (activateListeners) {
             volumeSlider.addEventListener(
-                "input",
+                'input',
                 (e) => {
                     let _t = e.target;
-                    _t.parentNode.style.setProperty("--val", +_t.value);
+                    _t.parentNode.style.setProperty('--val', +_t.value);
                     RP_SCRIPT.volume = _t.value;
                     if (RP_PLAYERJS != null)
-                        RP_PLAYERJS.api("volume", RP_SCRIPT.volume / 100);
-                    _t.title = "Volume " + RP_SCRIPT.volume;
+                        RP_PLAYERJS.api('volume', RP_SCRIPT.volume / 100);
+                    _t.title = 'Volume ' + RP_SCRIPT.volume;
                 },
                 !1
             );
             volumeSlider.addEventListener(
-                "change",
+                'change',
                 () => {
                     volumeSlidersInit(!1);
                 },
