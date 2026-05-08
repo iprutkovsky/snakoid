@@ -9,13 +9,14 @@
 	<link rel="stylesheet" href="./style/main.css">
 	<script src="./scripts/audio_stream.js" charset="UTF-8" defer></script>
 	<script src="./scripts/classes.js" defer></script>
+	<script src="./scripts/data.js" defer></script>
 	<script src="./scripts/main.js" defer></script>
 	<title>Snakoid</title>
 </head>
 
 <body>
 	<div class="main-field">
-		<div class="left-right-panel">
+		<div class="left-panel">
 			<img src="./images/background/guard-snakoid.png">
 		</div>
 
@@ -66,20 +67,100 @@
 				<div class="canvas-wrapper">
 					<canvas id="game-canvas"></canvas>
 				</div>
+				<button id="start-game" onclick="beginningOfExploration();">Start</button>
 			</div>
 
-			<div class="chat-container">
-				<textarea name="chat" id="chat-field" disabled></textarea>
+
+			<fieldset class="chat-container">
+				<legend>Chat</legend>
+				<div id="chat-field"></div>
 				<div class="input-field">
-					<input type="text">
-					<button><span>Send</span></button>
+					<input id="chat-input-field" type="text" maxlength="56">
+					<button id="send-btn" onclick="sendChatText();"><span>Send</span></button>
 				</div>
-
-			</div>
+			</fieldset>
 		</div>
 
-		<div class="left-right-panel">
-			<img src="./images/background/guard-snakoid-right.png">
+
+		<div class="right-panel">
+			<fieldset class="game-settings">
+				<legend>Game Settings</legend>
+				<div class="wrap-item-row">
+					<fieldset class="canvas-size">
+						<legend>Canvas Size</legend>
+						<div class="wrap-item-row">
+							<input type="radio" id="small-size" name="canvas-size" value="small" checked
+								onclick="selectedSize();">
+							<label for="small-size">Small</label>
+						</div>
+						<div class="wrap-item-row">
+							<input type="radio" id="medium-size" name="canvas-size" value="medium"
+								onclick="selectedSize();">
+							<label for="medium-size">Medium</label>
+						</div>
+						<div class="wrap-item-row">
+							<input type="radio" id="big-size" name="canvas-size" value="big" onclick="selectedSize();">
+							<label for="big-size">Big</label>
+						</div>
+					</fieldset>
+					<fieldset class="game-level">
+						<legend>Difficulty Level</legend>
+						<div class="wrap-item-row">
+							<input type="radio" id="easy-level" name="game-level" value="easy" checked
+								onclick="selectedDifficulty();">
+							<label for="easy-level">Easy</label>
+						</div>
+						<div class="wrap-item-row">
+							<input type="radio" id="normal-level" name="game-level" value="normal"
+								onclick="selectedDifficulty();">
+							<label for="normal-level">Normal</label>
+						</div>
+						<div class="wrap-item-row">
+							<input type="radio" id="hard-level" name="game-level" value="hard"
+								onclick="selectedDifficulty();">
+							<label for="hard-level">Hard</label>
+						</div>
+					</fieldset>
+				</div>
+				<fieldset class="control-rules">
+					<legend>Control&#47;Rules</legend>
+
+					<ul><span>Control</span>
+						<li>Begin<span>&#47;</span>continue exploring press<span> Start&#47;Pause </span>button</li>
+						<li>Make a rest press<span> Esc </span></li>
+						<li>Control Snakoid&#58;<br><span>W </span>&#8208; Up&#44; <span>S </span>&#8208; Down&#44;
+							<span>A </span>&#8208; Left&#44; <span>D </span>&#8208; Right&#44;
+						</li>
+					</ul>
+					<ul><span>Rules</span>
+						<li>Before you start the exploration of the droid world</li>
+						<li>Choose the Canvas Size &#38; Difficulty</li>
+						<li>During the exploration, you will pick up the fruits</li>
+						<li>Sweet fruits will fill up the energy block of <span>Snakoid</span>&#44;<br>and new blocks
+							will
+							appear&#44; but the Sour ones will exhaust it&#44;<br>and blocks will disappear</li>
+
+						<li>Your exploration will be stopped if&#58;
+							<br>&#9702; the quantity of energy blocks is less than three
+							<br>&#9702; the leading block will come into contact with one of the other blocks
+							<br>&#9702; the score is less than zero
+						</li>
+						<li>Be sensible so that you can make the right choice</li>
+					</ul>
+				</fieldset>
+				<fieldset class="information">
+					<legend>Information</legend>
+					<div class="sweet">
+						<p>Sweet</p>
+					</div>
+					<div class="sour">
+						<p>Sour</p>
+					</div>
+				</fieldset>
+			</fieldset>
+			<div class="right-panel-image">
+				<img src="./images/background/servant-droid.png">
+			</div>
 		</div>
 	</div>
 </body>
