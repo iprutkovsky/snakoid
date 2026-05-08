@@ -81,6 +81,10 @@ body {
 .right-panel-image {
 	display: flex;
 	justify-content: center;
+
+	img {
+		height: 17rem;
+	}
 }
 
 /* table settings*/
