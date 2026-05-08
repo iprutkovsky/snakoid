@@ -8,6 +8,16 @@ body {
 
 /* Animation */
 
+@keyframes color-spin {
+	from {
+		--angle: 0deg;
+	}
+
+	to {
+		--angle: 360deg;
+	}
+}
+
 @keyframes pulsate-fwd {
 	0% {
 		transform: scale(1)
@@ -26,6 +36,12 @@ body {
 	to {
 		transform: rotate(360deg)
 	}
+}
+
+@property --angle {
+	syntax: "<angle>";
+	inherits: false;
+	initial-value: 0deg;
 }
 
 .animate-spin {
@@ -48,10 +64,122 @@ body {
 	margin-top: 2rem;
 }
 
-.left-right-panel {
-	align-content: flex-end;
+.left-panel,
+.right-panel {
 	height: 90vh;
 	margin: auto 1rem;
+}
+
+.left-panel {
+	align-content: flex-end;
+}
+
+.right-panel {
+	align-content: space-around;
+}
+
+.right-panel-image {
+	display: flex;
+	justify-content: center;
+}
+
+/* table settings*/
+.info-table {
+
+	/* table,
+	th,
+	td {
+		border: .0625rem solid #222D42;
+	} */
+
+	td,
+	th {
+		padding: .25rem;
+		text-align: center;
+	}
+}
+
+.game-settings {
+	background-color: #666268;
+	border-radius: .5rem;
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	margin-bottom: 2rem;
+	width: fit-content;
+}
+
+.canvas-size,
+.game-level,
+.information,
+.control-rules {
+	background-color: #666268;
+	border-radius: .5rem;
+	display: flex;
+	flex-direction: column;
+	width: 11.5rem;
+}
+
+.canvas-size {
+	margin-right: .75rem;
+}
+
+.control-rules {
+	margin-top: .5rem;
+	width: 25.5rem;
+
+	ul {
+		margin: .25rem 0;
+	}
+
+	li {
+		font-size: .75rem;
+		margin: 0;
+	}
+
+	span {
+		color: #3F74B8;
+		font-size: 1rem;
+	}
+}
+
+.information {
+	display: flex;
+	flex-direction: row;
+	margin-top: .5rem;
+	padding-left: .25rem;
+	width: 22.5rem;
+}
+
+.sour,
+.sweet {
+	display: flex;
+	flex-direction: row;
+	margin-right: .5rem;
+
+	p {
+		align-self: center;
+		text-orientation: upright;
+		writing-mode: vertical-lr;
+	}
+}
+
+.sour {
+	margin-right: .25rem;
+}
+
+.canvas-size legend,
+.game-level legend,
+.game-settings legend,
+.information legend,
+.control-rules legend {
+	color: #444444;
+	padding: 0 .25rem;
+}
+
+.canvas-size label,
+.game-level label {
+	color: #e4e4e4;
 }
 
 .central {
@@ -123,26 +251,31 @@ body {
 }
 
 .chat-container {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	border: none;
+	border-radius: .5rem;
 }
 
-.chat-container textarea {
+.chat-container legend {
+	color: #3F74B8;
+}
+
+#chat-field {
 	background-color: #e4e4e4;
 	border-radius: .25rem;
 	height: 20rem;
+	overflow-x: hidden;
+	overflow-y: auto;
 	outline: none;
-	width: 20rem;
+	scroll-snap-align: end;
+	width: 40rem;
 }
 
 .chat-container input {
 	border: none;
 	border-radius: .25rem;
-	margin: .5rem 0;
+	margin: .5rem .25rem 0 0;
 	outline: none;
-	width: 17rem;
+	width: 36.5rem;
 }
 
 .chat-container button {
@@ -156,7 +289,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	min-height: 50vh;
+	min-height: 48.5vh;
 }
 
 #game-canvas {
@@ -164,10 +297,31 @@ body {
 	display: block;
 }
 
-#radio-station {
-	border-radius: .25rem;
+#start-game {
+	background-color: #e4e4e4;
+	animation: 9s color-spin linear infinite;
+	background-image: conic-gradient(from var(--angle), transparent .5%, #00ff99, #78A465, #3F74B8, #00ff99, #78A465, #4077BE, #00ff99, #78A465, #4077BE);
+	border-radius: .5rem;
+	color: #3F74B8;
+	font-size: 1.25rem;
 	outline: none;
+	padding: .25rem 1.5rem;
+	position: absolute;
+	top: 35%;
+}
+
+#radio-station {
+	appearance: base-select;
+	border: .125rem solid #4077BE;
 	width: 13.25rem;
+}
+
+select option {
+	border-radius: .125rem;
+}
+
+.wrap-item-row {
+	display: flex;
 }
 
 .RP-SCRIPT *,
