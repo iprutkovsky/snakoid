@@ -1,9 +1,10 @@
 class Fruit {
-    constructor({ position, imageSrc, point = 0 }) {
+    constructor({ position, imageSrc, point = 0, type = null }) {
         this.position = position;
         this.image = new Image();
         this.image.src = imageSrc;
         this.point = point;
+        this.type = type;
     }
 
     draw() {
