@@ -356,7 +356,7 @@ function startFruitLifespan() {
 	// Start a new timer and store its ID
 	fruitLifespan = setInterval(() => {
 		drawFruit();
-		console.log("Timer ticking...");
+		console.log('Timer ticking... hurry up');
 	}, timerDelay);
 }
 

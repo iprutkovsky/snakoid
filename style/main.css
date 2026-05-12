@@ -83,7 +83,7 @@ body {
 	justify-content: center;
 
 	img {
-		height: 17rem;
+		height: 24vh;
 	}
 }
 
@@ -121,7 +121,7 @@ body {
 	border-radius: .5rem;
 	display: flex;
 	flex-direction: column;
-	width: 11.5rem;
+	width: 9.5vw;
 }
 
 .canvas-size {
@@ -130,7 +130,7 @@ body {
 
 .control-rules {
 	margin-top: .5rem;
-	width: 25.5rem;
+	width: 21.25vw;
 
 	ul {
 		margin: .25rem 0;
@@ -152,7 +152,7 @@ body {
 	flex-direction: row;
 	margin-top: .5rem;
 	padding-left: .25rem;
-	width: 22.5rem;
+	width: 21.5vw;
 }
 
 .sour,
