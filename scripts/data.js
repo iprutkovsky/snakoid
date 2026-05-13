@@ -25,6 +25,8 @@ const dataTableSweet2 = [
     { fruit: 'yellow_cherry', score: 2 }
 ];
 
+let idx = 0;
+
 const mockData = [
     ['Echo', '👍 🙏'],
     ['Zenith', 'Pretty good, just working.'],
@@ -337,6 +339,10 @@ const mockData = [
 function addedByItself() {
     const chatArea = document.querySelector('#chat-field');
     chatArea.innerHTML = '';
+    while (idx < 17) {
+        chatArea.innerHTML += `${chatArea.innerHTML ? '<br>' : ''}<span style='color: #3F74B8; padding: 0 .5rem'>${mockData[idx][0]}:</span> ${mockData[idx][1]}`;
+        ++idx;
+    }    
     const intervalUpdatedIndex = setInterval(() => {
         chatArea.innerHTML += `${chatArea.innerHTML ? '<br>' : ''}<span style='color: #3F74B8; padding: 0 .5rem'>${mockData[idx][0]}:</span> ${mockData[idx][1]}`;
         ++idx;
