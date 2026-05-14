@@ -2,6 +2,7 @@ body {
 	background: #353336;
 	background-image: url(../images/background/shutterstock_1798382128-scaled.jpg);
 	background-repeat: no-repeat;
+	background-size: 100vw 100vh;
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
@@ -217,6 +218,7 @@ body {
 .main {
 	display: flex;
 	flex-direction: row;
+	width: 19dvw;
 }
 
 .info {
@@ -263,7 +265,7 @@ body {
 		border-radius: .25rem;
 		margin: .5rem .25rem 0 0;
 		outline: none;
-		width: 36.5rem;
+		width: 32.5vw;
 	}
 
 	button {
@@ -310,7 +312,7 @@ body {
 #radio-station {
 	appearance: base-select;
 	border: .125rem solid #4077BE;
-	width: 13.25rem;
+	width: 10vw;
 }
 
 select option {
@@ -363,7 +365,7 @@ select option {
 	--tw-ring-offset-color: #fff;
 	--tw-ring-color: #3b82f680;
 	--tw-ring-offset-shadow: 0 0 #0000;
-	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(.125rem + var(--tw-ring-offset-width)) var(--tw-ring-color);
 	--tw-shadow: 0 0 #0000;
 	--tw-shadow-colored: 0 0 #0000;
 	--tw-blur: ;
@@ -394,23 +396,12 @@ select option {
 }
 
 .radio-player button,
-.radio-player input {
-	color: inherit;
-	font-family: inherit;
-	font-size: 100%;
-	font-weight: inherit;
-	line-height: inherit;
-	margin: 0;
-	padding: 0
-}
-
-.radio-player button,
 .radio-player [role=button] {
 	align-self: center;
 	cursor: pointer;
-	height: 2.5rem;
+	height: 2.5vh;
 	padding: .125rem;
-	width: 1.25rem;
+	width: 1.25vw;
 }
 
 .radio-player :disabled {
@@ -438,18 +429,22 @@ select option {
 	display: flex;
 	font-size: 1rem;
 	padding-left: .5rem;
-	width: 7rem;
+	width: 6vw;
 }
 
 .radio-player .volume-wrapper {
 	display: none;
-	margin: .5rem 0;
+	margin: .5dvh 0;
+}
+
+.control-field {
+	align-content: center;
+	margin-left: -.8dvw;
 }
 
 .radio-player .player-control {
 	border-radius: 1rem;
 	background-color: #e4e4e4;
-	margin-right: .5rem;
 }
 
 .radio-player .player-control:hover {
@@ -461,39 +456,42 @@ select option {
 }
 
 .radio-player .player-control[data-state=buffering] .play-icon {
-	display: none
+	display: none;
 }
 
 .radio-player .player-control[data-state=buffering] .pause-icon {
-	display: none
+	display: none;
 }
 
 .radio-player .player-control[data-state=buffering] .buffer-icon {
-	display: block
+	display: block;
+	padding-left: .2dvw;
 }
 
 .radio-player .player-control[data-state=playing] .play-icon {
-	display: none
+	display: none;
 }
 
 .radio-player .player-control[data-state=playing] .pause-icon {
-	display: block
+	display: block;
+	padding-left: .2dvw;
 }
 
 .radio-player .player-control[data-state=playing] .buffer-icon {
-	display: none
+	display: none;
 }
 
 .radio-player .player-control[data-state=stopped] .play-icon {
-	display: block
+	display: block;
+	padding-left: .2dvw;
 }
 
 .radio-player .player-control[data-state=stopped] .pause-icon {
-	display: none
+	display: none;
 }
 
 .radio-player .player-control[data-state=stopped] .buffer-icon {
-	display: none
+	display: none;
 }
 
 form.volume {
@@ -505,16 +503,16 @@ form.volume {
 	display: grid;
 	grid-gap: .25em;
 	place-self: center;
-	min-width: 8em;
+	min-width: 8vw;
 	width: calc(100% - 1.5em);
-	max-width: 14em;
+	max-width: 10vw;
 	transition: filter .3s ease-out
 }
 
 form.volume input[type=range] {
 	background: rgba(0, 0, 0, 0);
 	cursor: pointer;
-	width: 100%
+	width: 10vw;
 }
 
 form.volume input[type=range],
@@ -530,7 +528,7 @@ form.volume input[type=range][list]::-webkit-slider-container {
 form.volume input[type=range]::-webkit-slider-container {
 	-webkit-user-modify: read-write !important;
 	height: .5rem;
-	margin: .375em;
+	margin: .375dvh .2dvw 0 0;
 	border-radius: .75em;
 	box-shadow: inset 0 .0625rem .25rem #c5c5c5;
 	background: linear-gradient(#4077BE, #3F74B8) 0/var(--pos) no-repeat, linear-gradient(#efefef, #c9c9c9)
@@ -541,8 +539,8 @@ form.volume input[type=range]::-webkit-slider-runnable-track {
 }
 
 form.volume input[type=range]::-moz-range-track {
-	margin: .375em;
-	height: 1.5em;
+	margin: .375rem;
+	height: 1.5vh;
 	border-radius: .75em;
 	box-shadow: inset 0 .0625rem .25rem #8c8c8c;
 	background: linear-gradient(#4077BE, #3F74B8) 0/var(--pos) no-repeat, linear-gradient(#efefef, #c9c9c9)
@@ -550,9 +548,9 @@ form.volume input[type=range]::-moz-range-track {
 
 form.volume input[type=range]::-webkit-slider-thumb {
 	box-sizing: border-box;
-	border: solid .375em rgba(0, 0, 0, 0);
-	width: 1.5rem;
-	height: 1.5rem;
+	border: solid .375rem rgba(0, 0, 0, 0);
+	width: 1dvw;
+	height: 1.95dvh;
 	border-radius: 50%;
 	box-shadow: 0 .125rem .3125rem #7d7d7d;
 	background: linear-gradient(#4077BE, #3F74B8) padding-box, linear-gradient(#fbfbfb, #c2c2c2) border-box;
@@ -561,9 +559,9 @@ form.volume input[type=range]::-webkit-slider-thumb {
 
 form.volume input[type=range]::-moz-range-thumb {
 	box-sizing: border-box;
-	border: solid .375em rgba(0, 0, 0, 0);
-	width: 1.6em;
-	height: 1.6em;
+	border: solid .375rem rgba(0, 0, 0, 0);
+	width: 1dvw;
+	height: 1.95dvh;
 	border-radius: 50%;
 	box-shadow: 0 .125rem .3125rem #7d7d7d;
 	background: linear-gradient(#4077BE, #3F74B8) padding-box, linear-gradient(#fbfbfb, #c2c2c2) border-box;
@@ -577,7 +575,7 @@ form.volume input[type=range]:focus {
 @media(min-width: 640px) {
 	.radio-player .volume-wrapper {
 		display: block;
-		width: 16rem
+		width: 12vw;
 	}
 
 	.radio-player .volume-wrapper .volume {
