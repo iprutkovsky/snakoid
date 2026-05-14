@@ -439,7 +439,7 @@ select option {
 
 .control-field {
 	align-content: center;
-	margin-left: -.8dvw;
+	margin-left: -.75dvw;
 }
 
 .radio-player .player-control {
@@ -465,7 +465,7 @@ select option {
 
 .radio-player .player-control[data-state=buffering] .buffer-icon {
 	display: block;
-	padding-left: .2dvw;
+	padding-left: .225dvw;
 }
 
 .radio-player .player-control[data-state=playing] .play-icon {
@@ -474,7 +474,7 @@ select option {
 
 .radio-player .player-control[data-state=playing] .pause-icon {
 	display: block;
-	padding-left: .2dvw;
+	padding-left: .225dvw;
 }
 
 .radio-player .player-control[data-state=playing] .buffer-icon {
@@ -483,7 +483,7 @@ select option {
 
 .radio-player .player-control[data-state=stopped] .play-icon {
 	display: block;
-	padding-left: .2dvw;
+	padding-left: .225dvw;
 }
 
 .radio-player .player-control[data-state=stopped] .pause-icon {
