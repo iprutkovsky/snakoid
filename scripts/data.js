@@ -25,6 +25,29 @@ const dataTableSweet2 = [
     { fruit: 'yellow_cherry', score: 2 }
 ];
 
+const dataTableTopPlayerScore = [
+    { nickName: 'Thunder', score: 201 },
+    { nickName: 'GamerGirl', score: 130 },
+    { nickName: 'PixelPusher:', score: 112 },
+    { nickName: 'Souppure', score: 102 },
+    { nickName: 'Hunter', score: 101 },
+    { nickName: 'LevelUpLiz', score: 99 },
+    { nickName: 'Dummer', score: 93 },
+    { nickName: 'Roller', score: 91 },
+    { nickName: 'Orion', score: 88 },
+    { nickName: 'Moonbeam', score: 84 },
+    { nickName: 'Byte', score: 81 },
+    { nickName: 'Magic', score: 76 },
+    { nickName: 'Waggy', score: 72 },
+    { nickName: 'Phoenix', score: 64 },
+    { nickName: 'Gizmo', score: 62 },
+    { nickName: 'ControllerKing', score: 56 },
+    { nickName: 'Tip-Top', score: 54 },
+    { nickName: 'Spark', score: 52 },
+    { nickName: 'Player1', score: 42 },
+    { nickName: 'NoobMaster69', score: 38 }
+];
+
 let idx = 0;
 
 const mockData = [
@@ -342,7 +365,7 @@ function addedByItself() {
     while (idx < 17) {
         chatArea.innerHTML += `${chatArea.innerHTML ? '<br>' : ''}<span style='color: #3F74B8; padding: 0 .5rem'>${mockData[idx][0]}:</span> ${mockData[idx][1]}`;
         ++idx;
-    }    
+    }
     const intervalUpdatedIndex = setInterval(() => {
         chatArea.innerHTML += `${chatArea.innerHTML ? '<br>' : ''}<span style='color: #3F74B8; padding: 0 .5rem'>${mockData[idx][0]}:</span> ${mockData[idx][1]}`;
         ++idx;
@@ -351,7 +374,16 @@ function addedByItself() {
     }, randomInterval() * 1000);
 }
 
-function createTable(data, type) {
+function addTopPlayerScore(gameScore) {
+    const table = document.querySelector('.top-player-score-table');
+    dataTableTopPlayerScore.push({ 'nickName': 'anonymous', 'score': gameScore });
+    dataTableTopPlayerScore.sort((a, b) => b.score - a.score).pop();
+
+    table.innerHTML = '';
+    createTopPlayerScoreTable(dataTableTopPlayerScore);
+}
+
+function createFruitInfoTable(data, type) {
     const container = document.querySelector(`.${type}`);
 
     // Create the table element    
@@ -388,6 +420,38 @@ function createTable(data, type) {
     container.appendChild(table);
 }
 
+function createTopPlayerScoreTable(data) {
+    const container = document.querySelector('.top-player-score');
+
+    // Create the table element    
+    const table = document.createElement('table');
+
+    // Add a header row
+    const header = table.createTHead();
+    const headerRowTitle = header.insertRow(0);
+    const headers = Object.keys(data[0]);
+    const tbody = table.createTBody();
+
+    table.border = '1'; // Optional: adds a basic border
+    table.classList.add('top-player-score-table');
+
+    // fill out header    
+    headers.forEach((text, index) => {
+        const cell = headerRowTitle.insertCell(index);
+        cell.outerHTML = `<th>${text}</th>`; // Use <th> for headers
+    });
+
+    // fill out rows and cells
+    data.forEach(item => {
+        const row = tbody.insertRow();
+        Object.values(item).forEach((val, index) => {
+            const cell = row.insertCell(index);
+            cell.textContent = val;
+        });
+    });
+    container.appendChild(table);
+}
+
 function sendChatText() {
     const chatArea = document.querySelector('#chat-field');
     const chatInput = document.querySelector('#chat-input-field');
@@ -397,6 +461,7 @@ function sendChatText() {
 }
 
 addedByItself();
-createTable(dataTableSweet, 'sweet');
-createTable(dataTableSweet2, 'sweet');
-createTable(dataTableSour, 'sour');
+createFruitInfoTable(dataTableSweet, 'sweet');
+createFruitInfoTable(dataTableSweet2, 'sweet');
+createFruitInfoTable(dataTableSour, 'sour');
+createTopPlayerScoreTable(dataTableTopPlayerScore);

@@ -266,8 +266,8 @@ function drawSnake() {
 		snake.update();
 
 		if (el.x == fruit.position.x && el.y == fruit.position.y) {
-			fruit.type == 'sweet' ? snake.maxTail++ : (snake.maxTail--, snake.tail.pop());			
-			if (snake.maxTail < currentSettings.maxTail) {				
+			fruit.type == 'sweet' ? snake.maxTail++ : (snake.maxTail--, snake.tail.pop());
+			if (snake.maxTail < currentSettings.maxTail) {
 				explorationOver();
 			}
 			scoreCount();
@@ -278,6 +278,7 @@ function drawSnake() {
 		for (let i = idx + 1; i < snake.tail.length; i++) {
 			if (el.x == snake.tail[i].x && el.y == snake.tail[i].y) {
 				explorationOver();
+				createTopPlayerScore(dataTableTopPlayerScore);
 			}
 		}
 	});
@@ -289,6 +290,9 @@ function explorationOver() {
 	game.ended = true;
 	cancelAnimationFrame(loop);
 	stopTimer();
+	if (game.score >= dataTableTopPlayerScore.at(-1).score) {
+		addTopPlayerScore(game.score);
+	}
 }
 
 function getFruitRandomPosition() {

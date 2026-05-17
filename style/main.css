@@ -66,16 +66,25 @@ body {
 	margin-top: 1dvh;
 }
 
-.left-panel {
-	align-content: baseline;
-}
-
+.left-panel,
 .right-panel {
 	align-content: baseline;
 }
 
+.top-player-score {
+	background-color: #666268;
+	border-radius: .5rem;
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	margin-bottom: 2rem;
+	width: fit-content;
+}
+
+
 /* table settings*/
-.info-table {
+.info-table,
+.top-player-score-table {
 
 	/* table,
 	th,
@@ -161,10 +170,11 @@ body {
 }
 
 .canvas-size legend,
+.control-rules legend,
 .game-level legend,
 .game-settings legend,
 .information legend,
-.control-rules legend {
+.top-player-score legend {
 	color: #444444;
 	padding: 0 .25rem;
 }
