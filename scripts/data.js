@@ -28,7 +28,7 @@ const dataTableSweet2 = [
 const dataTableTopPlayerScore = [
     { nickName: 'Thunder', score: 201 },
     { nickName: 'GamerGirl', score: 130 },
-    { nickName: 'PixelPusher:', score: 112 },
+    { nickName: 'PixelPusher', score: 112 },
     { nickName: 'Souppure', score: 102 },
     { nickName: 'Hunter', score: 101 },
     { nickName: 'LevelUpLiz', score: 99 },
