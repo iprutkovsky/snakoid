@@ -42,7 +42,7 @@ const dataTableTopPlayerScore = [
     { nickName: 'Phoenix', score: 64 },
     { nickName: 'Gizmo', score: 62 },
     { nickName: 'ControllerKing', score: 56 },
-    { nickName: 'Tip-Top', score: 54 },
+    { nickName: 'TipTop', score: 54 },
     { nickName: 'Spark', score: 52 },
     { nickName: 'Player1', score: 42 },
     { nickName: 'NoobMaster69', score: 38 }
