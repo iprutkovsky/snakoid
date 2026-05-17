@@ -2,7 +2,7 @@ body {
 	background: #353336;
 	background-image: url(../images/background/shutterstock_1798382128-scaled.jpg);
 	background-repeat: no-repeat;
-	background-size: 100vw 100vh;
+	background-size: 100dvw 100dvh;
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
@@ -63,15 +63,11 @@ body {
 .main-field {
 	display: flex;
 	justify-content: center;
-	margin-top: 1vh;
+	margin-top: 1dvh;
 }
 
 .left-panel {
-	align-content: flex-end;
-
-	img {
-		height: 32vh;
-	}
+	align-content: baseline;
 }
 
 .right-panel {
@@ -116,7 +112,7 @@ body {
 
 .canvas-size,
 .game-level {
-	width: 7.5vw;
+	width: 7.5dvw;
 }
 
 .canvas-size {
@@ -129,7 +125,7 @@ body {
 
 	ul {
 		margin: .25rem 0 0;
-		padding-left: .75vw;
+		padding-left: .75dvw;
 	}
 
 	li {
@@ -158,7 +154,7 @@ body {
 
 	p {
 		align-self: center;
-		margin: 0 .5vw;
+		margin: 0 .5dvw;
 		text-orientation: upright;
 		writing-mode: vertical-lr;
 	}
@@ -179,10 +175,12 @@ body {
 }
 
 .central {
-	background: #353336;
+	/* background: #353336; */
+	background-image: url(../images/background/game-field-full.png);
+	background-repeat: no-repeat;
 	border-radius: 1.125rem;
 	justify-self: center;
-	margin: 0 2vw;
+	margin: 0 2dvw;
 }
 
 .control-block {
@@ -257,7 +255,7 @@ body {
 	}
 
 	img {
-		height: 4vh;
+		height: 4dvh;
 	}
 
 	input {
@@ -265,7 +263,7 @@ body {
 		border-radius: .25rem;
 		margin: .5rem .25rem 0 0;
 		outline: none;
-		width: 32.5vw;
+		width: 32.5dvw;
 	}
 
 	button {
@@ -277,7 +275,7 @@ body {
 #chat-field {
 	background-color: #e4e4e4;
 	border-radius: .25rem;
-	max-height: 23vh;
+	max-height: 23dvh;
 	overflow-x: hidden;
 	overflow-y: auto;
 	outline: none;
@@ -286,9 +284,17 @@ body {
 
 #game {
 	align-items: center;
+	/* background-image: url(../images/background/game-field.png);
+	background-repeat: no-repeat; */
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	/* img {
+		height: 12dvh;
+		margin: 3dvh 28dvw 0 0;		
+		position: absolute;		
+	} */
 }
 
 #game-canvas {
@@ -303,16 +309,16 @@ body {
 	border-radius: .5rem;
 	color: #3F74B8;
 	font-size: 1.25rem;
+	margin-top: 4dvh;
 	outline: none;
 	padding: .25rem 1.5rem;
 	position: absolute;
-	top: 26vh;
 }
 
 #radio-station {
 	appearance: base-select;
 	border: .125rem solid #4077BE;
-	width: 10vw;
+	width: 10dvw;
 }
 
 select option {
@@ -399,9 +405,9 @@ select option {
 .radio-player [role=button] {
 	align-self: center;
 	cursor: pointer;
-	height: 2.5vh;
+	height: 2.5dvh;
 	padding: .125rem;
-	width: 1.25vw;
+	width: 1.25dvw;
 }
 
 .radio-player :disabled {
@@ -429,7 +435,7 @@ select option {
 	display: flex;
 	font-size: 1rem;
 	padding-left: .5rem;
-	width: 6vw;
+	width: 6dvw;
 }
 
 .radio-player .volume-wrapper {
@@ -503,16 +509,16 @@ form.volume {
 	display: grid;
 	grid-gap: .25em;
 	place-self: center;
-	min-width: 8vw;
+	min-width: 8dvw;
 	width: calc(100% - 1.5em);
-	max-width: 10vw;
+	max-width: 10dvw;
 	transition: filter .3s ease-out
 }
 
 form.volume input[type=range] {
 	background: rgba(0, 0, 0, 0);
 	cursor: pointer;
-	width: 10vw;
+	width: 10dvw;
 }
 
 form.volume input[type=range],
@@ -540,7 +546,7 @@ form.volume input[type=range]::-webkit-slider-runnable-track {
 
 form.volume input[type=range]::-moz-range-track {
 	margin: .375rem;
-	height: 1.5vh;
+	height: 1.5dvh;
 	border-radius: .75em;
 	box-shadow: inset 0 .0625rem .25rem #8c8c8c;
 	background: linear-gradient(#4077BE, #3F74B8) 0/var(--pos) no-repeat, linear-gradient(#efefef, #c9c9c9)
@@ -575,7 +581,7 @@ form.volume input[type=range]:focus {
 @media(min-width: 640px) {
 	.radio-player .volume-wrapper {
 		display: block;
-		width: 12vw;
+		width: 12dvw;
 	}
 
 	.radio-player .volume-wrapper .volume {
