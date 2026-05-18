@@ -383,6 +383,12 @@ function addTopPlayerScore(gameScore) {
     createTopPlayerScoreTable(dataTableTopPlayerScore);
 }
 
+function convertToCapital(data) {
+    data = data.split(/(?=[A-Z])/);
+    data[0] = data[0][0].toUpperCase() + data[0].slice(1);
+    return data[0] + data[1].toLowerCase();
+}
+
 function createFruitInfoTable(data, type) {
     const container = document.querySelector(`.${type}`);
 
@@ -401,7 +407,7 @@ function createFruitInfoTable(data, type) {
     // fill out header    
     headers.forEach((text, index) => {
         const cell = headerRowTitle.insertCell(index);
-        cell.outerHTML = `<th>${text}</th>`; // Use <th> for headers
+        cell.outerHTML = `<th>${firstLetterToCapital(text)}</th>`; // Use <th> for headers
     });
 
     // fill out rows and cells
@@ -438,7 +444,7 @@ function createTopPlayerScoreTable(data) {
     // fill out header    
     headers.forEach((text, index) => {
         const cell = headerRowTitle.insertCell(index);
-        cell.outerHTML = `<th>${text}</th>`; // Use <th> for headers
+        cell.outerHTML = `<th>${index ? firstLetterToCapital(text) : convertToCapital(text)}</th>`; // Use <th> for headers
     });
 
     // fill out rows and cells
@@ -450,6 +456,10 @@ function createTopPlayerScoreTable(data) {
         });
     });
     container.appendChild(table);
+}
+
+function firstLetterToCapital(data) {
+    return data[0].toUpperCase() + data.slice(1);
 }
 
 function sendChatText() {

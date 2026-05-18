@@ -86,18 +86,32 @@ body {
 .info-table,
 .top-player-score-table {
 
-	/* table,
-	th,
-	td {
-		border: .0625rem solid #222D42;
-	} */
-
 	td,
 	th {
 		padding: .25rem;
 		text-align: center;
 	}
+
+	th {
+		color: #121214;
+	}
 }
+
+.top-player-score-table {
+
+	tr:nth-child(1) {
+		color: #ffd700;
+	}
+
+	tr:nth-child(2) {
+		color: #c0c0c0;
+	}
+
+	tr:nth-child(3) {
+		color: #825e2f;
+	}
+}
+
 
 .game-settings {
 	background-color: #666268;
