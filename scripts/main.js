@@ -290,9 +290,6 @@ function explorationOver() {
 	game.ended = true;
 	cancelAnimationFrame(loop);
 	stopTimer();
-	if (game.score >= dataTableTopPlayerScore.at(-1).score) {
-		addTopPlayerScore(game.score);
-	}
 }
 
 function getFruitRandomPosition() {
@@ -330,7 +327,8 @@ function scoreCount() {
 	drawScore();
 	if (game.score < 0) {
 		explorationOver();
-	}
+	}	
+	addTopPlayerScore(game.score);
 	!(game.score % config.acceleration) && (config.maxStep -= config.velocity);
 }
 

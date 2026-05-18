@@ -26,28 +26,29 @@ const dataTableSweet2 = [
 ];
 
 const dataTableTopPlayerScore = [
-    { nickName: 'Thunder', score: 201 },
-    { nickName: 'GamerGirl', score: 130 },
-    { nickName: 'PixelPusher', score: 112 },
-    { nickName: 'Souppure', score: 102 },
-    { nickName: 'Hunter', score: 101 },
-    { nickName: 'LevelUpLiz', score: 99 },
-    { nickName: 'Dummer', score: 93 },
-    { nickName: 'Roller', score: 91 },
-    { nickName: 'Orion', score: 88 },
-    { nickName: 'Moonbeam', score: 84 },
-    { nickName: 'Byte', score: 81 },
-    { nickName: 'Magic', score: 76 },
-    { nickName: 'Waggy', score: 72 },
-    { nickName: 'Phoenix', score: 64 },
-    { nickName: 'Gizmo', score: 62 },
-    { nickName: 'ControllerKing', score: 56 },
-    { nickName: 'TipTop', score: 54 },
-    { nickName: 'Spark', score: 52 },
-    { nickName: 'Player1', score: 42 },
-    { nickName: 'NoobMaster69', score: 38 }
+    { nickName: 'Thunder', score: 201, title: 'Benjo' },
+    { nickName: 'GamerGirl', score: 130, title: 'Mega Ben' },
+    { nickName: 'PixelPusher', score: 112, title: 'Ben' },
+    { nickName: 'Souppure', score: 102, title: 'Champion' },
+    { nickName: 'Hunter', score: 101, title: 'Gamer Expert' },
+    { nickName: 'LevelUpLiz', score: 99, title: 'Advanced Gamer' },
+    { nickName: 'Dummer', score: 93, title: 'Gamer' },
+    { nickName: 'Roller', score: 91, title: 'Noob Expert' },
+    { nickName: 'Orion', score: 88, title: 'Noob Expert' },
+    { nickName: 'Moonbeam', score: 84, title: 'Noob Expert' },
+    { nickName: 'Byte', score: 81, title: 'Advanced Noob' },
+    { nickName: 'Magic', score: 76, title: 'Advanced Noob' },
+    { nickName: 'Waggy', score: 72, title: 'Advanced Noob' },
+    { nickName: 'Phoenix', score: 64, title: 'Advanced Noob' },
+    { nickName: 'Gizmo', score: 62, title: 'Advanced Noob' },
+    { nickName: 'ControllerKing', score: 56, title: 'Noob' },
+    { nickName: 'TipTop', score: 54, title: 'Noob' },
+    { nickName: 'Spark', score: 52, title: 'Noob' },
+    { nickName: 'Player1', score: 42, title: 'Noob' },
+    { nickName: 'NoobMaster69', score: 38, title: 'Noob' }
 ];
 
+let firstTimeAdded = false;
 let idx = 0;
 
 const mockData = [
@@ -358,6 +359,29 @@ const mockData = [
     ['Crimson', "What's up?"]
 ];
 
+const playerTitle = {
+    0: 'Benjo',
+    1: 'Mega Ben',
+    2: 'Ben',
+    3: 'Champion',
+    4: 'Gamer Expert',
+    5: 'Advanced Gamer',
+    6: 'Gamer',
+    7: 'Noob Expert',
+    8: 'Noob Expert',
+    9: 'Noob Expert',
+    10: 'Advanced Noob',
+    11: 'Advanced Noob',
+    12: 'Advanced Noob',
+    13: 'Advanced Noob',
+    14: 'Advanced Noob',
+    15: 'Noob',
+    16: 'Noob',
+    17: 'Noob',
+    18: 'Noob',
+    19: 'Noob',
+};
+
 // Functions section
 function addedByItself() {
     const chatArea = document.querySelector('#chat-field');
@@ -375,18 +399,29 @@ function addedByItself() {
 }
 
 function addTopPlayerScore(gameScore) {
-    const table = document.querySelector('.top-player-score-table');
-    dataTableTopPlayerScore.push({ 'nickName': 'anonymous', 'score': gameScore });
-    dataTableTopPlayerScore.sort((a, b) => b.score - a.score).pop();
+    const tableContainer = document.querySelector('.score-table');
 
-    table.innerHTML = '';
+
+    if (firstTimeAdded) {
+        dataTableTopPlayerScore.find((v, i) => v['nickName'] == 'anonymous' && (v['score'] = gameScore));
+        dataTableTopPlayerScore.sort((a, b) => b.score - a.score);
+        dataTableTopPlayerScore.forEach((v, i) => v['title'] = playerTitle[i]);
+    }
+
+    if (gameScore > dataTableTopPlayerScore.at(-1)['score'] && !firstTimeAdded) {
+        dataTableTopPlayerScore.push({ 'nickName': 'anonymous', 'score': gameScore, 'title': 'Noob' });
+        dataTableTopPlayerScore.sort((a, b) => b.score - a.score);
+        dataTableTopPlayerScore.pop();
+        firstTimeAdded = true;
+    }
+
+    tableContainer.innerHTML = '';
     createTopPlayerScoreTable(dataTableTopPlayerScore);
 }
 
 function convertToCapital(data) {
     data = data.split(/(?=[A-Z])/);
-    data[0] = data[0][0].toUpperCase() + data[0].slice(1);
-    return data[0] + data[1].toLowerCase();
+    return data[0][0].toUpperCase() + data[0].slice(1) + data[1].toLowerCase();
 }
 
 function createFruitInfoTable(data, type) {
@@ -427,7 +462,7 @@ function createFruitInfoTable(data, type) {
 }
 
 function createTopPlayerScoreTable(data) {
-    const container = document.querySelector('.top-player-score');
+    const container = document.querySelector('.score-table');
 
     // Create the table element    
     const table = document.createElement('table');
@@ -453,6 +488,7 @@ function createTopPlayerScoreTable(data) {
         Object.values(item).forEach((val, index) => {
             const cell = row.insertCell(index);
             cell.textContent = val;
+            if (val == 'anonymous') row.classList.add('current-climber');
         });
     });
     container.appendChild(table);
