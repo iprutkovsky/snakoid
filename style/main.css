@@ -66,18 +66,12 @@ body {
 	margin-top: 1dvh;
 }
 
-.left-panel,
-.right-panel {
-	align-content: baseline;
-}
-
 .top-player-score {
 	background-color: #666268;
 	border-radius: .5rem;
 	display: flex;
 	flex-direction: column;
 	justify-self: center;
-	margin-bottom: 2rem;
 	width: fit-content;
 }
 
@@ -119,7 +113,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-self: center;
-	margin-bottom: 2rem;
 	width: fit-content;
 }
 
@@ -135,7 +128,7 @@ body {
 
 .canvas-size,
 .game-level {
-	width: 7.5dvw;
+	width: 6.75dvw;
 }
 
 .canvas-size {
@@ -177,7 +170,7 @@ body {
 
 	p {
 		align-self: center;
-		margin: 0 .5dvw;
+		margin: 0 .35dvw;
 		text-orientation: upright;
 		writing-mode: vertical-lr;
 	}
@@ -273,7 +266,7 @@ body {
 	legend {
 		align-items: baseline;
 		display: flex;
-		color: #3F74B8;
+		color: #ffd700;
 		justify-content: space-between;
 		width: 100%;
 	}
