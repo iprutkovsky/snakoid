@@ -151,6 +151,7 @@ const snake = new Snake({
 	maxTail: 3
 });
 let timerDelay = 9000;
+let timesPlayed = 0;
 
 canvas.width = canvasSize['small'];
 canvas.height = canvasSize['small'];
@@ -267,10 +268,11 @@ function drawSnake() {
 
 		if (el.x == fruit.position.x && el.y == fruit.position.y) {
 			fruit.type == 'sweet' ? snake.maxTail++ : (snake.maxTail--, snake.tail.pop());
+			scoreCount();
 			if (snake.maxTail < currentSettings.maxTail) {
 				explorationOver();
+				return;
 			}
-			scoreCount();
 			drawFruit();
 			startFruitLifespan();
 		}
@@ -278,7 +280,7 @@ function drawSnake() {
 		for (let i = idx + 1; i < snake.tail.length; i++) {
 			if (el.x == snake.tail[i].x && el.y == snake.tail[i].y) {
 				explorationOver();
-				createTopPlayerScore(dataTableTopPlayerScore);
+				addTopPlayerScore(game.score);
 			}
 		}
 	});
@@ -327,7 +329,7 @@ function scoreCount() {
 	drawScore();
 	if (game.score < 0) {
 		explorationOver();
-	}	
+	}
 	addTopPlayerScore(game.score);
 	!(game.score % config.acceleration) && (config.maxStep -= config.velocity);
 }

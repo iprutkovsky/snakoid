@@ -111,6 +111,9 @@ body {
 	background-color: #5C6E78;
 }
 
+.times-played {
+	margin: .75dvh 0 0 .25dvw;
+}
 
 .game-settings {
 	background-color: #666268;
