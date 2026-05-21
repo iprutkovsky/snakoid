@@ -26,26 +26,26 @@ const dataTableSweet2 = [
 ];
 
 const dataTableTopPlayerScore = [
-    { nickName: 'Thunder', score: 21, title: 'Benjo' },
-    { nickName: 'GamerGirl', score: 19, title: 'Mega Ben' },
-    { nickName: 'PixelPusher', score: 18, title: 'Ben' },
-    { nickName: 'Souppure', score: 17, title: 'Champion' },
-    { nickName: 'Hunter', score: 16, title: 'Gamer Expert' },
-    { nickName: 'LevelUpLiz', score: 15, title: 'Advanced Gamer' },
-    { nickName: 'Dummer', score: 14, title: 'Gamer' },
-    { nickName: 'Roller', score: 13, title: 'Noob Expert' },
-    { nickName: 'Orion', score: 12, title: 'Noob Expert' },
-    { nickName: 'Moonbeam', score: 11, title: 'Noob Expert' },
-    { nickName: 'Byte', score: 10, title: 'Advanced Noob' },
-    { nickName: 'Magic', score: 9, title: 'Advanced Noob' },
-    { nickName: 'Waggy', score: 8, title: 'Advanced Noob' },
-    { nickName: 'Phoenix', score: 7, title: 'Advanced Noob' },
-    { nickName: 'Gizmo', score: 6, title: 'Advanced Noob' },
-    { nickName: 'ControllerKing', score: 5, title: 'Noob' },
-    { nickName: 'TipTop', score: 4, title: 'Noob' },
-    { nickName: 'Spark', score: 3, title: 'Noob' },
-    { nickName: 'Player1', score: 2, title: 'Noob' },
-    { nickName: 'NoobMaster69', score: 1, title: 'Noob' }
+    { nickName: 'Thunder', score: 201, title: 'Benjo' },
+    { nickName: 'GamerGirl', score: 130, title: 'Mega Ben' },
+    { nickName: 'PixelPusher', score: 112, title: 'Ben' },
+    { nickName: 'Souppure', score: 102, title: 'Champion' },
+    { nickName: 'Hunter', score: 101, title: 'Gamer Expert' },
+    { nickName: 'LevelUpLiz', score: 99, title: 'Advanced Gamer' },
+    { nickName: 'Dummer', score: 93, title: 'Gamer' },
+    { nickName: 'Roller', score: 91, title: 'Noob Expert' },
+    { nickName: 'Orion', score: 88, title: 'Noob Expert' },
+    { nickName: 'Moonbeam', score: 84, title: 'Noob Expert' },
+    { nickName: 'Byte', score: 81, title: 'Advanced Noob' },
+    { nickName: 'Magic', score: 76, title: 'Advanced Noob' },
+    { nickName: 'Waggy', score: 72, title: 'Advanced Noob' },
+    { nickName: 'Phoenix', score: 64, title: 'Advanced Noob' },
+    { nickName: 'Gizmo', score: 62, title: 'Advanced Noob' },
+    { nickName: 'ControllerKing', score: 56, title: 'Noob' },
+    { nickName: 'TipTop', score: 54, title: 'Noob' },
+    { nickName: 'Spark', score: 52, title: 'Noob' },
+    { nickName: 'Player1', score: 42, title: 'Noob' },
+    { nickName: 'NoobMaster69', score: 38, title: 'Noob' }
 ];
 
 const mockData = [
