@@ -1,6 +1,7 @@
 // Variables section
 let firstTimeAdded = false;
 let idx = 0;
+let selectedGameLanguage;
 const tmpDataTableTopPlayerScore = dataTableTopPlayerScore.slice();
 
 // Functions section
@@ -126,6 +127,67 @@ function createTopPlayerScoreTable(data) {
 
 function firstLetterToCapital(data) {
     return data[0].toUpperCase() + data.slice(1);
+}
+
+function selectedLanguage() {
+    selectedGameLanguage = document.querySelector('input[name="language"]:checked').value;
+    let eng = document.querySelector('label[for="english"]');
+    let rus = document.querySelector('label[for="russian"]');
+    let topPlayers = document.querySelector('#top-players');
+    let timesPlayed = document.querySelector('.times-played');
+    let onlineRadio = document.querySelector('#online-radio');
+    let startGame = document.querySelector('#start-game');
+    let chat = document.querySelector('#chat');
+    let send = document.querySelector('#send');
+    let gameSettings = document.querySelector('#game-settings');
+
+    let canvasSize = document.querySelector('#canvas-size');
+    let smallSize = document.querySelector('label[for="small-size"]');
+    let mediumSize = document.querySelector('label[for="medium-size"]');
+    let bigSize = document.querySelector('label[for="big-size"]');
+
+    let difficultyLevel = document.querySelector('#difficulty-level');
+    let easyLevel = document.querySelector('label[for="easy-level"]');
+    let normalLevel = document.querySelector('label[for="normal-level"]');
+    let hardLevel = document.querySelector('label[for="hard-level"]');
+
+    let lang = document.querySelector('#lang');
+    let controlRules = document.querySelector('#control-rules');
+    let control = document.querySelector('#control');
+    let rules = document.querySelector('#rules');
+
+    let information = document.querySelector('#information');
+    let sweet = document.querySelector('#sweet');
+    let sour = document.querySelector('#sour');
+
+
+    topPlayers.textContent = language[selectedGameLanguage].topPlayers;
+    timesPlayed.textContent = language[selectedGameLanguage].timesPlayed;
+    onlineRadio.textContent = language[selectedGameLanguage].onlineRadio;
+    startGame.textContent = language[selectedGameLanguage].startGame;
+    chat.textContent = language[selectedGameLanguage].chat;
+    send.textContent = language[selectedGameLanguage].send;
+    gameSettings.textContent = language[selectedGameLanguage].gameSettings;
+
+    canvasSize.textContent = language[selectedGameLanguage].canvasSize;
+    smallSize.textContent = language[selectedGameLanguage].smallSize;
+    mediumSize.textContent = language[selectedGameLanguage].mediumSize;
+    bigSize.textContent = language[selectedGameLanguage].bigSize;
+
+    difficultyLevel.textContent = language[selectedGameLanguage].difficultyLevel;
+    easyLevel.textContent = language[selectedGameLanguage].easyLevel;
+    normalLevel.textContent = language[selectedGameLanguage].normalLevel;
+    hardLevel.textContent = language[selectedGameLanguage].hardLevel;
+
+    lang.textContent = language[selectedGameLanguage].lang;
+
+    controlRules.textContent = language[selectedGameLanguage].controlRules;
+    control.textContent = language[selectedGameLanguage].control;
+    rules.textContent = language[selectedGameLanguage].rules;
+
+    information.textContent = language[selectedGameLanguage].information;
+    sweet.textContent = language[selectedGameLanguage].sweet;
+    sour.textContent = language[selectedGameLanguage].sour;
 }
 
 function sendChatText() {

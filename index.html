@@ -19,7 +19,7 @@
 	<div class="main-field">
 		<div class="left-panel">
 			<fieldset class="top-player-score">
-				<legend>Top Players</legend>
+				<legend id="top-players">Top Players</legend>
 				<div class="score-table"></div>
 				<p class="times-played">Games Played&#58;&#160;0</p>
 			</fieldset>
@@ -31,7 +31,7 @@
 					<div id="RP-playerjs"></div>
 					<div class="main">
 						<div class="current-song">
-							<span>Online Radio</span>
+							<span id="online-radio">Online Radio</span>
 						</div>
 						<div class="info">
 							<div class="info-container">
@@ -76,21 +76,21 @@
 
 
 			<fieldset class="chat-container">
-				<legend>Chat<img src="./images/background/servant-droid.png"></legend>
+				<legend id="chat">Chat<img src="./images/background/servant-droid.png"></legend>
 				<div id="chat-field"></div>
 				<div class="input-field">
 					<input id="chat-input-field" type="text" maxlength="56">
-					<button id="send-btn" onclick="sendChatText();"><span>Send</span></button>
+					<button id="send-btn" onclick="sendChatText();"><span id="send">Send</span></button>
 				</div>
 			</fieldset>
 		</div>
 
 		<div class="right-panel">
 			<fieldset class="game-settings">
-				<legend>Game Settings</legend>
+				<legend id="game-settings">Game Settings</legend>
 				<div class="wrap-item-row">
 					<fieldset class="canvas-size">
-						<legend>Canvas Size</legend>
+						<legend id="canvas-size">Canvas Size</legend>
 						<div class="wrap-item-row">
 							<input type="radio" id="small-size" name="canvas-size" value="small" checked
 								onclick="selectedSize();">
@@ -107,7 +107,7 @@
 						</div>
 					</fieldset>
 					<fieldset class="game-level">
-						<legend>Difficulty Level</legend>
+						<legend id="difficulty-level">Difficulty Level</legend>
 						<div class="wrap-item-row">
 							<input type="radio" id="easy-level" name="game-level" value="easy" checked
 								onclick="selectedDifficulty();">
@@ -124,18 +124,31 @@
 							<label for="hard-level">Hard</label>
 						</div>
 					</fieldset>
+					<fieldset class="language">
+						<legend id="lang">Language</legend>
+						<div class="wrap-item-row">
+							<input type="radio" id="english" name="language" value="eng" checked
+								onclick="selectedLanguage();">
+							<label for="english">English</label>
+						</div>
+						<div class="wrap-item-row">
+							<input type="radio" id="russian" name="language" value="rus"
+								onclick="selectedLanguage();">
+							<label for="russian">Русский</label>
+						</div>
+					</fieldset>
 				</div>
 				<fieldset class="control-rules">
-					<legend>Control&#47;Rules</legend>
+					<legend id="control-rules">Control&#47;Rules</legend>
 
-					<ul><span>Control</span>
+					<ul><span id="control">Control</span>
 						<li>Begin<span>&#47;</span>continue exploring press<span> Start&#47;Pause </span>button</li>
 						<li>Make a rest press<span> Esc </span></li>
 						<li>Control Snakoid&#58;<br><span>W </span>&#8208; Up&#44; <span>S </span>&#8208; Down&#44;
 							<span>A </span>&#8208; Left&#44; <span>D </span>&#8208; Right&#44;
 						</li>
 					</ul>
-					<ul><span>Rules</span>
+					<ul><span id="rules">Rules</span>
 						<li>Before you start the exploration of the droid world</li>
 						<li>Choose the Canvas Size &#38; Difficulty</li>
 						<li>During the exploration, you will pick up the fruits</li>
@@ -152,12 +165,12 @@
 					</ul>
 				</fieldset>
 				<fieldset class="information">
-					<legend>Information</legend>
+					<legend id="information">Information</legend>
 					<div class="sweet">
-						<p>Sweet</p>
+						<p id="sweet">Sweet</p>
 					</div>
 					<div class="sour">
-						<p>Sour</p>
+						<p id="sour">Sour</p>
 					</div>
 				</fieldset>
 			</fieldset>

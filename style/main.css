@@ -127,6 +127,7 @@ body {
 .canvas-size,
 .game-level,
 .information,
+.language,
 .control-rules {
 	background-color: #666268;
 	border-radius: .5rem;
@@ -135,11 +136,13 @@ body {
 }
 
 .canvas-size,
-.game-level {
-	width: 6.75dvw;
+.game-level,
+.language {
+	width: 5dvw;
 }
 
-.canvas-size {
+.canvas-size,
+.game-level {
 	margin-right: .75rem;
 }
 
@@ -195,7 +198,8 @@ body {
 }
 
 .canvas-size label,
-.game-level label {
+.game-level label,
+.language label {
 	color: #e4e4e4;
 }
 
@@ -602,6 +606,24 @@ form.volume input[type=range]::-moz-range-thumb {
 form.volume input[type=range]:focus {
 	outline: none
 }
+
+@media (max-width: 1920px) {
+	.control-field {
+		margin-left: -.6dvw;
+	}
+
+	.language {
+		height: 11.5dvh;
+		margin-top: 1dvh;
+	}
+
+	.radio-player .player-control[data-state=buffering] .buffer-icon,
+	.radio-player .player-control[data-state=playing] .pause-icon,
+	.radio-player .player-control[data-state=stopped] .play-icon {
+		padding: 0 0 .2dvh .15dvw;
+	}
+}
+
 
 @media(min-width: 640px) {
 	.radio-player .volume-wrapper {

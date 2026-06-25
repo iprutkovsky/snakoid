@@ -179,7 +179,7 @@ document.addEventListener('keydown', (e) => {
 		case 'Escape':
 			cancelAnimationFrame(loop);
 			btn.style.display = 'block';
-			btn.innerHTML = 'Pause';
+			btn.innerHTML = language[selectedGameLanguage].pauseGame;
 			game.paused = true;
 			stopTimer();
 			break;
@@ -189,12 +189,14 @@ document.addEventListener('keydown', (e) => {
 function beginningOfExploration() {
 	const groupCanvasSize = document.querySelector('.canvas-size');
 	const groupGameLevel = document.querySelector('.game-level');
+	const groupLanguage = document.querySelector('.language');
 
 	if (game.ended) {
-		btn.innerHTML = 'Start';
+		btn.innerHTML = language[selectedGameLanguage].startGame;
 		game.ended = false;
 		groupCanvasSize.disabled = false;
 		groupGameLevel.disabled = false;
+		groupLanguage.disabled = false;
 		refreshGame();
 	}
 	else {
@@ -204,6 +206,7 @@ function beginningOfExploration() {
 		else {
 			groupCanvasSize.disabled = true;
 			groupGameLevel.disabled = true;
+			groupLanguage.disabled = true;
 			drawScore();
 		}
 		btn.style.display = 'none';
@@ -288,7 +291,7 @@ function drawSnake() {
 
 function explorationOver() {
 	btn.style.display = 'block';
-	btn.innerHTML = 'Game Over';
+	btn.innerHTML = language[selectedGameLanguage].gameOver;
 	game.ended = true;
 	cancelAnimationFrame(loop);
 	stopTimer();
@@ -335,7 +338,7 @@ function scoreCount() {
 }
 
 function selectedDifficulty() {
-	selectedGameDifficulty = document.querySelector('input[name="game-level"]:checked').value;
+	const selectedGameDifficulty = document.querySelector('input[name="game-level"]:checked').value;
 
 	config.acceleration = difficulty[selectedGameDifficulty][2];
 	config.velocity = difficulty[selectedGameDifficulty][1];

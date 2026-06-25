@@ -48,6 +48,61 @@ const dataTableTopPlayerScore = [
     { nickName: 'NoobMaster69', score: 38, title: 'Noob' }
 ];
 
+const language = {
+    eng: {
+        topPlayers: 'Top Players',
+        timesPlayed: 'Games Played: 0',
+        onlineRadio: 'Online Radio',
+        startGame: 'Start',
+        pauseGame: 'Pause',
+        gameOver: 'Game Over',
+        chat: 'Chat',
+        send: 'Send',
+        gameSettings: 'Game Settings',
+        canvasSize: 'Canvas Size',
+        smallSize: 'Small',
+        mediumSize: 'Medium',
+        bigSize: 'Big',
+        difficultyLevel: 'Difficulty Level',
+        easyLevel: 'Easy',
+        normalLevel: 'Normal',
+        hardLevel: 'Hard',
+        lang: 'Language',
+        controlRules: 'Control/Rules',
+        control: 'Control',
+        rules: 'Rules',
+        information: 'Information',
+        sweet: 'Sweet',
+        sour: 'Sour'
+    },
+    rus: {
+        topPlayers: 'Лучшие Игроки',
+        timesPlayed: 'Игр: 0',
+        onlineRadio: 'Радио Эфир',
+        startGame: 'Погнали',
+        pauseGame: 'Перерывчик',
+        gameOver: 'Приехали',
+        chat: 'Чат',
+        send: 'Улёт',
+        gameSettings: 'Настройки Игры',
+        canvasSize: 'Размер Поля',
+        smallSize: 'Малой',
+        mediumSize: 'Среднячок',
+        bigSize: 'Шальной',
+        difficultyLevel: 'Сложность',
+        easyLevel: 'Изя',
+        normalLevel: 'Нормалёк',
+        hardLevel: 'Жесть',
+        lang: 'Язык',
+        controlRules: 'Контроль/Правила',
+        control: 'Контроль',
+        rules: 'Правила',
+        information: 'Информация',
+        sweet: 'Сладкий',
+        sour: 'Кислый'
+    }
+}
+
 const mockData = [
     ['Echo', '👍 🙏'],
     ['Zenith', 'Pretty good, just working.'],
