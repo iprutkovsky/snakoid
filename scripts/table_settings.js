@@ -48,6 +48,7 @@ function addTopPlayerScore(gameScore) {
 
     tableContainer.innerHTML = '';
     createTopPlayerScoreTable(dataTableTopPlayerScore);
+    updateTopPlayerHeader();
 }
 
 function convertToCapital(data) {
@@ -55,7 +56,7 @@ function convertToCapital(data) {
     return data[0][0].toUpperCase() + data[0].slice(1) + data[1].toLowerCase();
 }
 
-function createFruitInfoTable(data, type) {
+function createFruitInfoTable(data, num, type) {
     const container = document.querySelector(`.${type}`);
 
     // Create the table element    
@@ -68,7 +69,7 @@ function createFruitInfoTable(data, type) {
     const tbody = table.createTBody();
 
     table.border = '1'; // Optional: adds a basic border
-    table.classList.add('info-table');
+    table.classList.add(`info-table-${num}`);
 
     // fill out header    
     headers.forEach((text, index) => {
@@ -130,9 +131,6 @@ function firstLetterToCapital(data) {
 }
 
 function selectedLanguage() {
-    selectedGameLanguage = document.querySelector('input[name="language"]:checked').value;
-    let eng = document.querySelector('label[for="english"]');
-    let rus = document.querySelector('label[for="russian"]');
     let topPlayers = document.querySelector('#top-players');
     let timesPlayed = document.querySelector('.times-played');
     let onlineRadio = document.querySelector('#online-radio');
@@ -159,7 +157,7 @@ function selectedLanguage() {
     let information = document.querySelector('#information');
     let sweet = document.querySelector('#sweet');
     let sour = document.querySelector('#sour');
-
+    selectedGameLanguage = document.querySelector('input[name="language"]:checked').value;
 
     topPlayers.textContent = language[selectedGameLanguage].topPlayers;
     timesPlayed.textContent = language[selectedGameLanguage].timesPlayed;
@@ -188,6 +186,9 @@ function selectedLanguage() {
     information.textContent = language[selectedGameLanguage].information;
     sweet.textContent = language[selectedGameLanguage].sweet;
     sour.textContent = language[selectedGameLanguage].sour;
+
+    updateFruitTableHeader();    
+    updateTopPlayerHeader();
 }
 
 function sendChatText() {
@@ -198,8 +199,23 @@ function sendChatText() {
     chatArea.scrollTop = chatArea.scrollHeight;
 }
 
+function updateFruitTableHeader() {
+    const fruitTableHeader1 = document.querySelectorAll('.info-table-1 th');
+    const fruitTableHeader2 = document.querySelectorAll('.info-table-2 th');
+    const fruitTableHeader3 = document.querySelectorAll('.info-table-3 th');
+    
+    fruitTableHeader1.forEach((th, i) => (th.textContent = language[selectedGameLanguage].fruitTableHeader[i]));
+    fruitTableHeader2.forEach((th, i) => (th.textContent = language[selectedGameLanguage].fruitTableHeader[i]));
+    fruitTableHeader3.forEach((th, i) => (th.textContent = language[selectedGameLanguage].fruitTableHeader[i]));
+}
+
+function updateTopPlayerHeader() {
+    const topPlayerHeader = document.querySelectorAll('.top-player-score-table th');
+    topPlayerHeader.forEach((th, i) => (th.textContent = language[selectedGameLanguage].topPlayersHeader[i]));
+}
+
 addedByItself();
-createFruitInfoTable(dataTableSweet, 'sweet');
-createFruitInfoTable(dataTableSweet2, 'sweet');
-createFruitInfoTable(dataTableSour, 'sour');
+createFruitInfoTable(dataTableSweet, 1, 'sweet');
+createFruitInfoTable(dataTableSweet2, 2, 'sweet');
+createFruitInfoTable(dataTableSour, 3, 'sour');
 createTopPlayerScoreTable(dataTableTopPlayerScore);

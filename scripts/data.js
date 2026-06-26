@@ -51,6 +51,7 @@ const dataTableTopPlayerScore = [
 const language = {
     eng: {
         topPlayers: 'Top Players',
+        topPlayersHeader: ['Nickname', 'Score', 'Title'],
         timesPlayed: 'Games Played: 0',
         onlineRadio: 'Online Radio',
         startGame: 'Start',
@@ -72,34 +73,37 @@ const language = {
         control: 'Control',
         rules: 'Rules',
         information: 'Information',
+        fruitTableHeader: ['Fruit', 'Score'],
         sweet: 'Sweet',
         sour: 'Sour'
     },
     rus: {
         topPlayers: 'Лучшие Игроки',
+        topPlayersHeader: ['Имя', 'Очки', 'Титул'],
         timesPlayed: 'Игр: 0',
         onlineRadio: 'Радио Эфир',
         startGame: 'Погнали',
         pauseGame: 'Перерывчик',
         gameOver: 'Приехали',
         chat: 'Чат',
-        send: 'Улёт',
+        send: 'Отпр',
         gameSettings: 'Настройки Игры',
         canvasSize: 'Размер Поля',
-        smallSize: 'Малой',
-        mediumSize: 'Среднячок',
-        bigSize: 'Шальной',
+        smallSize: 'Малый',
+        mediumSize: 'Средний',
+        bigSize: 'Большой',
         difficultyLevel: 'Сложность',
-        easyLevel: 'Изя',
-        normalLevel: 'Нормалёк',
-        hardLevel: 'Жесть',
+        easyLevel: 'Лёгкий',
+        normalLevel: 'Обычный',
+        hardLevel: 'Тяжёлый',
         lang: 'Язык',
         controlRules: 'Контроль/Правила',
         control: 'Контроль',
         rules: 'Правила',
         information: 'Информация',
-        sweet: 'Сладкий',
-        sour: 'Кислый'
+        fruitTableHeader: ['Фрукт', 'Балл'],
+        sweet: 'Сладкие',
+        sour: 'Кислые'
     }
 }
 
