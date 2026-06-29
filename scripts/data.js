@@ -52,7 +52,7 @@ const language = {
     eng: {
         topPlayers: 'Top Players',
         topPlayersHeader: ['Nickname', 'Score', 'Title'],
-        timesPlayed: 'Games Played: 0',
+        timesPlayed: 'Games: 0',
         onlineRadio: 'Online Radio',
         startGame: 'Start',
         pauseGame: 'Pause',
