@@ -232,7 +232,6 @@ function collisionBorder() {
 function drawFruit() {
 	let nextFruit;
 	rand = getRandomFruit();
-
 	getFruitRandomPosition();
 
 	nextFruit = listOfFruits[keys[rand]].src;
@@ -320,10 +319,8 @@ function refreshGame() {
 	snake.tail = [];
 	snake.step.dx = config.sizeCell;
 	snake.step.dy = 0;
-
-	getFruitRandomPosition();
-	fruit.imageSrc = listOfFruits[keys[rand]].src;
-	fruit.point = listOfFruits[keys[rand]].point;
+	
+	drawFruit();
 	selectedDifficulty();
 }
 

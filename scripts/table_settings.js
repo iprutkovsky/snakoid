@@ -1,7 +1,7 @@
 // Variables section
 let firstTimeAdded = false;
 let idx = 0;
-let selectedGameLanguage;
+let selectedGameLanguage = 'eng';
 const tmpDataTableTopPlayerScore = dataTableTopPlayerScore.slice();
 
 // Functions section
