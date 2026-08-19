@@ -126,15 +126,6 @@ const listOfFruits = {
 };
 const keys = Object.keys(listOfFruits);
 let rand = getRandomFruit();
-// const fruit = new Fruit({
-// 	position: {
-// 		x: getRandomPoint(0, canvas.width / config.sizeCell) * config.sizeCell,
-// 		y: getRandomPoint(0, canvas.height / config.sizeCell) * config.sizeCell
-// 	},
-// 	imageSrc: listOfFruits[keys[rand]].src,
-// 	point: listOfFruits[keys[rand]].point,
-// 	type: listOfFruits[keys[rand]].type,
-// });
 let fruitLifespan = null;
 let selectedGameDifficulty = null;
 const snake = new Snake({
