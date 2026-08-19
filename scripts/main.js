@@ -11,20 +11,19 @@ const scoreBlock = document.querySelector('.score-count');
 let loop;
 const config = {
 	acceleration: 4,
+	fruitQuantity: 1,
 	maxStep: 64,
+	maxTail: 3,
 	sizeCell: 16,
 	step: 0,
 	velocity: 2
 };
-// [tailLength, velocity, acceleration]
-let currentSettings = {
-	maxTail: 3
-};
+// [tailLength, velocity, acceleration, quantity of fruits]
 const difficulty = {
-	easy: [3, 2, 4],
-	normal: [5, 3, 4],
-	hard: [7, 4, 3],
-	insane: [9, 5, 2]
+	easy: [3, 2, 4, 1],
+	normal: [5, 3, 4, 2],
+	hard: [7, 4, 3, 3],
+	insane: [9, 5, 2, 4]
 };
 
 let intervalStarted = null;
@@ -127,15 +126,15 @@ const listOfFruits = {
 };
 const keys = Object.keys(listOfFruits);
 let rand = getRandomFruit();
-const fruit = new Fruit({
-	position: {
-		x: getRandomPoint(0, canvas.width / config.sizeCell) * config.sizeCell,
-		y: getRandomPoint(0, canvas.height / config.sizeCell) * config.sizeCell
-	},
-	imageSrc: listOfFruits[keys[rand]].src,
-	point: listOfFruits[keys[rand]].point,
-	type: listOfFruits[keys[rand]].type,
-});
+// const fruit = new Fruit({
+// 	position: {
+// 		x: getRandomPoint(0, canvas.width / config.sizeCell) * config.sizeCell,
+// 		y: getRandomPoint(0, canvas.height / config.sizeCell) * config.sizeCell
+// 	},
+// 	imageSrc: listOfFruits[keys[rand]].src,
+// 	point: listOfFruits[keys[rand]].point,
+// 	type: listOfFruits[keys[rand]].type,
+// });
 let fruitLifespan = null;
 let selectedGameDifficulty = null;
 const snake = new Snake({
@@ -150,6 +149,7 @@ const snake = new Snake({
 	tail: [],
 	maxTail: 3
 });
+let storageOfFruits = {};
 let timerDelay = 9000;
 let timesPlayed = 0;
 
@@ -186,6 +186,22 @@ document.addEventListener('keydown', (e) => {
 	}
 });
 
+function addFruitToStorage(fruitQuantity) {
+	let i = 0;
+	while (i < fruitQuantity) {
+		rand = getRandomFruit();
+		storageOfFruits[i++] = new Fruit({
+			position: {
+				x: getRandomPoint(0, canvas.width / config.sizeCell) * config.sizeCell,
+				y: getRandomPoint(0, canvas.height / config.sizeCell) * config.sizeCell
+			},
+			imageSrc: listOfFruits[keys[rand]].src,
+			point: listOfFruits[keys[rand]].point,
+			type: listOfFruits[keys[rand]].type,
+		});
+	}
+}
+
 function beginningOfExploration() {
 	const groupCanvasSize = document.querySelector('.canvas-size');
 	const groupGameLevel = document.querySelector('.game-level');
@@ -196,7 +212,7 @@ function beginningOfExploration() {
 		game.ended = false;
 		groupCanvasSize.disabled = false;
 		groupGameLevel.disabled = false;
-		groupLanguage.disabled = false;
+		groupLanguage.disabled = false;		
 		refreshGame();
 	}
 	else {
@@ -207,6 +223,7 @@ function beginningOfExploration() {
 			groupCanvasSize.disabled = true;
 			groupGameLevel.disabled = true;
 			groupLanguage.disabled = true;
+			addFruitToStorage(config.fruitQuantity);
 			drawScore();
 		}
 		btn.style.display = 'none';
@@ -229,15 +246,17 @@ function collisionBorder() {
 	}
 }
 
-function drawFruit() {
-	let nextFruit;
-	rand = getRandomFruit();
-	getFruitRandomPosition();
+function drawFruit() {	
+	Object.values(storageOfFruits).forEach(fruit => {
+		let nextFruit;
+		rand = getRandomFruit();
+		getFruitRandomPosition(fruit);
 
-	nextFruit = listOfFruits[keys[rand]].src;
-	fruit.point = listOfFruits[keys[rand]].point;
-	fruit.setFruitImage(nextFruit);
-	fruit.type = listOfFruits[keys[rand]].type;
+		nextFruit = listOfFruits[keys[rand]].src;
+		fruit.point = listOfFruits[keys[rand]].point;
+		fruit.setFruitImage(nextFruit);
+		fruit.type = listOfFruits[keys[rand]].type;
+	});	
 }
 
 function drawScore() {
@@ -268,16 +287,18 @@ function drawSnake() {
 
 		snake.update();
 
-		if (el.x == fruit.position.x && el.y == fruit.position.y) {
-			fruit.type == 'sweet' ? snake.maxTail++ : (snake.maxTail--, snake.tail.pop());
-			scoreCount();
-			if (snake.maxTail < currentSettings.maxTail) {
-				explorationOver();
-				return;
+		Object.values(storageOfFruits).forEach(fruit => {
+			if (el.x == fruit.position.x && el.y == fruit.position.y) {
+				fruit.type == 'sweet' ? snake.maxTail++ : (snake.maxTail--, snake.tail.pop());
+				scoreCount(fruit);
+				if (snake.maxTail < config.maxTail) {
+					explorationOver();
+					return;
+				}
+				drawFruit();
+				startFruitLifespan();
 			}
-			drawFruit();
-			startFruitLifespan();
-		}
+		});
 
 		for (let i = idx + 1; i < snake.tail.length; i++) {
 			if (el.x == snake.tail[i].x && el.y == snake.tail[i].y) {
@@ -296,9 +317,9 @@ function explorationOver() {
 	stopTimer();
 }
 
-function getFruitRandomPosition() {
-	fruit.position.x = getRandomPoint(0, canvas.width / config.sizeCell) * config.sizeCell;
-	fruit.position.y = getRandomPoint(0, canvas.height / config.sizeCell) * config.sizeCell;
+function getFruitRandomPosition(item) {
+	item.position.x = getRandomPoint(0, canvas.width / config.sizeCell) * config.sizeCell;
+	item.position.y = getRandomPoint(0, canvas.height / config.sizeCell) * config.sizeCell;
 }
 
 function getRandomFruit() {
@@ -319,12 +340,12 @@ function refreshGame() {
 	snake.tail = [];
 	snake.step.dx = config.sizeCell;
 	snake.step.dy = 0;
-	
-	drawFruit();
+
+	storageOfFruits = {};
 	selectedDifficulty();
 }
 
-function scoreCount() {
+function scoreCount(fruit) {
 	game.score += fruit.point;
 	drawScore();
 	if (game.score < 0) {
@@ -338,8 +359,9 @@ function selectedDifficulty() {
 	const selectedGameDifficulty = document.querySelector('input[name="game-level"]:checked').value;
 
 	config.acceleration = difficulty[selectedGameDifficulty][2];
+	config.fruitQuantity = difficulty[selectedGameDifficulty][3];	
+	config.maxTail = difficulty[selectedGameDifficulty][0];
 	config.velocity = difficulty[selectedGameDifficulty][1];
-	currentSettings.maxTail = difficulty[selectedGameDifficulty][0];
 	snake.maxTail = difficulty[selectedGameDifficulty][0];
 }
 
@@ -381,5 +403,5 @@ function main() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
 
 	drawSnake();
-	fruit.update();
+	Object.values(storageOfFruits).forEach(fruit => fruit.draw());
 }
